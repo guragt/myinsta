@@ -15,10 +15,10 @@ RSpec.describe User, type: :model do
     context 'format validation' do
       it { is_expected.to allow_value('*my_nick!*').for(:nickname) }
       it { is_expected.not_to allow_value('my nick').for(:nickname) }
-    end 
-    
+    end
+
     context 'uniqueness validation' do
       it { is_expected.to validate_uniqueness_of(:nickname) }
-    end    
+    end
   end
 end
