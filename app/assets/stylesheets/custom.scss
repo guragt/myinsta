@@ -89,19 +89,14 @@ input {
   height: auto !important;
 }
 
-#error_explanation {
+.invalid-feedback {
   color: red;
-  ul {
-    color: red;
-    margin: 0 0 30px 0;
-  }
+  font-size: 12px;
 }
 
-.field_with_errors {
-  @extend .has-error;
-  .form-control {
-    color: $state-danger-text;
-  }
+.is-invalid {
+  border-color: red;
+  margin: 0 0 5px 0;
 }
 
 .checkbox {
