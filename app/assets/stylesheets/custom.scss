@@ -64,7 +64,7 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: rgb(12, 75, 190);
+  color: #337ab7;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
@@ -99,18 +99,9 @@ input {
   margin: 0 0 5px 0;
 }
 
-.checkbox {
-  margin-top: -10px;
-  margin-bottom: 10px;
-  span {
-    margin-left: 20px;
-    font-weight: normal;
-  }
-}
-
-#session_remember_me {
+#user_remember_me {
   width: auto;
-  margin-left: 0;
+  margin-right: 5px;
 }
 
 /* flash */

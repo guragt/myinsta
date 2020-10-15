@@ -1,4 +1,4 @@
-<h1>Sign up</h1>
+<h2>Sign up</h2>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -8,7 +8,7 @@
       <%= f.input :email %>
       <%= f.input :password %>
       <%= f.input :password_confirmation %>
-      <%= f.button :submit, "Sign up" %>
+      <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
     <% end %>
     <%= render "devise/shared/links" %>
   </div>
