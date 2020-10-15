@@ -81,7 +81,6 @@ p {
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
-  margin-bottom: 15px;
   @include box_sizing;
 }
 
@@ -97,6 +96,12 @@ input {
 .is-invalid {
   border-color: red;
   margin: 0 0 5px 0;
+}
+
+.wide-button {
+  width: 100%;
+  @include box_sizing;
+  margin-top: 10px;
 }
 
 #user_remember_me {
