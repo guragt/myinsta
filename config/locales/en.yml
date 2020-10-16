@@ -44,3 +44,33 @@ en:
       mini_magick_processing_error: "Failed to manipulate with MiniMagick, maybe it is not an image? Original Error: %{e}"
       min_size_error: "File size should be greater than %{min_size}"
       max_size_error: "File size should be less than %{max_size}"
+  views:
+    sessions:
+      new:
+        title: "Log in"
+        submit: "Log in"
+    registrations:
+      new:
+        title: "Sign up"
+        submit: "Sign up"
+      edit:
+        title: "Edit user"
+        submit: "Update"
+        remove: "Remove my account"
+        cancel: "Cancel"
+        leave_blank: "leave it blank if you don't want to change it"
+    passwords:
+      new:
+        title: "Forgot your password?"
+        submit: "Send me reset password instructions"
+      edit:
+        title: "Change your password"
+        submit: "Change my password"
+    header:
+      log_in: "Log_in"
+      log_out: "Log_out"
+      account: "Account"
+      profile: "Profile"
+      settings: "Settings"
+      
+        
