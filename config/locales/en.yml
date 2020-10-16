@@ -44,7 +44,7 @@ en:
       mini_magick_processing_error: "Failed to manipulate with MiniMagick, maybe it is not an image? Original Error: %{e}"
       min_size_error: "File size should be greater than %{min_size}"
       max_size_error: "File size should be less than %{max_size}"
-  views:
+  devise:
     sessions:
       new:
         title: "Log in"
@@ -59,6 +59,7 @@ en:
         remove: "Remove my account"
         cancel: "Cancel"
         leave_blank: "leave it blank if you don't want to change it"
+        sure: "Are you sure?"
     passwords:
       new:
         title: "Forgot your password?"
@@ -66,11 +67,15 @@ en:
       edit:
         title: "Change your password"
         submit: "Change my password"
+    shared:
+      links:
+        log_in: "Log in"
+        sign_up: "Sign up"
+        forgot_pass: "Forgot your password"
+  layouts:
     header:
-      log_in: "Log_in"
-      log_out: "Log_out"
       account: "Account"
       profile: "Profile"
       settings: "Settings"
-      
-        
+      log_in: "Log_in"
+      log_out: "Log out"
