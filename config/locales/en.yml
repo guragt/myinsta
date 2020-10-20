@@ -74,8 +74,7 @@ en:
         forgot_pass: "Forgot your password"
   layouts:
     header:
-      account: "Account"
       profile: "Profile"
       settings: "Settings"
-      log_in: "Log_in"
+      log_in: "Log in"
       log_out: "Log out"
