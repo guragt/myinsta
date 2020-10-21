@@ -76,6 +76,15 @@ p {
   text-decoration: none;
 }
 
+#small-avatar {
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+#small-avatar img {
+  border-radius: 50%;
+}
+
 /* forms */
 
 input, textarea, select, .uneditable-input {
@@ -86,6 +95,12 @@ input, textarea, select, .uneditable-input {
 
 input {
   height: auto !important;
+}
+
+#user_avatar {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 15px;
 }
 
 .invalid-feedback {
@@ -104,9 +119,16 @@ input {
   margin-top: 10px;
 }
 
-#user_remember_me {
+#user_remember_me, #user_remove_avatar {
   width: auto;
   margin-right: 5px;
+}
+
+.edit-profile-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 /* flash */

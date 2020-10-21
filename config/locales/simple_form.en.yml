@@ -20,6 +20,7 @@ en:
         password: "Password"
         password_confirmation: "Password confirmation"
         remember_me: "Remeber me"
+        remove_avatar: "Remove avatar"
       user:
         edit:
           password: "New password"
