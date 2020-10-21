@@ -72,6 +72,9 @@ en:
         log_in: "Log in"
         sign_up: "Sign up"
         forgot_pass: "Forgot your password"
+  users:
+    show:
+      edit_profile: "Edit profile"
   layouts:
     header:
       profile: "Profile"

@@ -1,4 +1,13 @@
-<h1><%= @user.nickname %></h1>
-<p><%= @user.name %></p>
-<%= image_tag @user.avatar.thumb.url %>
+<div class="profile">
+	<div class="profile-image">
+  	<%= image_tag @user.avatar.thumb.url %>
+  </div>
 
+	<div class="profile-user-settings">
+    <h1 class="profile-nick-name"><%= @user.nickname %></h1>
+    <% if @user == current_user %>
+      <%= link_to t('.edit_profile'), edit_user_registration_path, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+	<div class="profile-real-name"><%= @user.name %></div>

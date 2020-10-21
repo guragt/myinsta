@@ -1,0 +1,42 @@
+.profile {
+  padding: 50px 0;
+}
+
+.profile-image {
+  float: left;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 30px;
+}
+
+.profile-image img, .edit-profile-image img {
+  border-radius: 50%;
+}
+
+.profile-user-settings,
+.profile-real-name {
+    float: left;
+    width: 60%;
+}
+
+.profile-user-settings {
+  margin-top: 1.1rem;
+}
+
+.profile-nick-name {
+  display: inline-block;
+  font-size: 40px;
+  font-weight: 300;
+  margin-right: 30px;
+}
+
+.profile-real-name {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-top: 23px;
+}
+
+
