@@ -6,6 +6,6 @@ class Post < ApplicationRecord
                     file_size: { less_than: 5.megabytes }
 
   acts_as_paranoid
-  
+
   mount_uploader :image, ImageUploader
 end
