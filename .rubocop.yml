@@ -6,6 +6,7 @@ AllCops:
     - "node_modules/**/*"
     - "vendor/**/*"
     - "config/initializers/simple_form_bootstrap.rb"
+    - "db/schema.rb"
 
 Layout/LineLength:
   Max: 90
@@ -19,7 +20,6 @@ Metrics/AbcSize:
 Metrics/BlockLength:
   Exclude:
     - "spec/**/*"
-    - "db/schema.rb"
     - "lib/tasks/auto_annotate_models.rake"
     - "config/environments/*.rb"    
     - "config/routes.rb"
