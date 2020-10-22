@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :posts, dependent: :destroy
+
   validates :name, presence: true,
                    length: { maximum: 50 }
   validates :nickname, presence: true,
