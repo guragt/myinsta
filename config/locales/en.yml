@@ -75,6 +75,12 @@ en:
   users:
     show:
       edit_profile: "Edit profile"
+  posts:
+    new:
+      title: "Create new post"
+      submit: "Post"
+    create:
+      notice: "Post created"
   layouts:
     header:
       profile: "Profile"
