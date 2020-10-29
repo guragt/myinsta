@@ -5,9 +5,9 @@
       <ul class="nav navbar-nav navbar-right">
         <% if signed_in? %>
           <li>
-            <%= link_to new_post_path, { 'data-target' => '#new-modal', 'data-toggle' => 'modal' } do %>
+            <button class="header-button" data-toggle="modal" data-target="#new-modal" } do %>
               <i class="glyphicon glyphicon-plus"></i>
-            <% end %>
+            </button>
           </li>
           <li class="dropdown">
             <a href="#" id="small-avatar" class="dropdown-toggle" data-toggle="dropdown">

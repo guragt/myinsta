@@ -10,7 +10,9 @@
   </head>
 
   <body>
-    <%= render 'posts/new_modal' %>
+    <% if signed_in? %>
+      <%= render 'posts/new_modal' %>
+    <% end %>
     <%= render 'layouts/header' %>
     <div class="container">
       <% flash.each do |message_type, message| %>

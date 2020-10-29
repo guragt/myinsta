@@ -85,6 +85,19 @@ p {
   border-radius: 50%;
 }
 
+.header-button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #777;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.header-button:hover {
+  color: #333;
+}
+
 /* forms */
 
 input, textarea, select, .uneditable-input {

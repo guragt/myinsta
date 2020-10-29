@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :index
 
-  def new; end
+  def index
+    redirect_to new_user_session_path unless signed_in?
+  end
 
   def create
     @post = current_user.posts.build(post_params)

@@ -1,4 +1,4 @@
-<%= simple_form_for (current_user.nil? ? Post.new : (@post || current_user.posts.build)), remote: true do |f| %>
+<%= simple_form_for (@post || current_user.posts.build), remote: true do |f| %>
   <%= f.input :image %>
   <%= f.hidden_field :image_cache %>
   <%= f.input :description %>
