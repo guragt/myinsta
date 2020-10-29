@@ -1,17 +1,17 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
 
-  def new
-    @post = current_user.posts.build
-  end
+  def new; end
 
   def create
     @post = current_user.posts.build(post_params)
-    if @post.save
-      flash[:success] = t('.notice')
-      redirect_to root_path
-    else
-      render 'new'
+    respond_to do |format|
+      if @post.save
+        flash[:success] = t('.notice')
+        format.js { redirect_to root_path }
+      else
+        format.js
+      end
     end
   end
 

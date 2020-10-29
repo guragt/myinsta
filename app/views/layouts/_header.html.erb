@@ -5,7 +5,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if signed_in? %>
           <li>
-            <%= link_to new_post_path do %>
+            <%= link_to new_post_path, { 'data-target' => '#new-modal', 'data-toggle' => 'modal' } do %>
               <i class="glyphicon glyphicon-plus"></i>
             <% end %>
           </li>

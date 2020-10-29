@@ -76,8 +76,9 @@ en:
     show:
       edit_profile: "Edit profile"
   posts:
-    new:
+    new_modal:
       title: "Create new post"
+    form:
       submit: "Post"
     create:
       notice: "Post created"
