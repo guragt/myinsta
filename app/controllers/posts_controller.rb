@@ -2,7 +2,11 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: :index
 
   def index
-    redirect_to new_user_session_path unless signed_in?
+    if signed_in?
+      @posts = current_user.posts.order(created_at: :desc)
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def create

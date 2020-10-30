@@ -1,0 +1,28 @@
+.post {
+  max-width: 616px;
+  border: 1px solid #e7e7e7 ;
+  border-radius: 3px;
+  margin: 40px auto;
+  background-color: #f8f8f8;
+}
+
+.post-avatar img {
+  margin: 12px;
+  border-radius: 50%;
+}
+
+.post-nick, .post-nick:hover {
+  font-weight: 600;
+  color: black;
+}
+
+.post-created {
+  font-size: 12px;
+  margin: 12px;
+  color: #777;
+}
+
+.post-comment {
+  margin: 12px;
+}
+

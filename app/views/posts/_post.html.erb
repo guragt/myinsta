@@ -1,0 +1,18 @@
+<div class="post">
+  <div class="post-header">
+    <%=link_to image_tag(post.user.avatar.small_thumb.url), user_path(post.user), class: 'post-avatar'%>
+    <%= link_to "#{post.user.nickname}", user_path(post.user), class: 'post-nick' %>
+  </div>
+  <div class="post-image">
+    <%= image_tag post.image.thumb.url %>
+  </div>
+  <% if post.description.present? %>
+    <div class="post-comment">
+      <%= link_to "#{post.user.nickname}", user_path(post.user), class: 'post-nick' %>
+      <%= post.description%>
+    </div>
+  <% end %>
+  <div class="post-created">
+    <%= time_ago_in_words(post.created_at) %> ago
+  </div>
+</div> 
