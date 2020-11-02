@@ -1,0 +1,9 @@
+<div class="content">
+  <div class="gallery">
+    <% @posts.each do |post| %>
+      <div class="gallery-item">
+        <%= image_tag post.image.small_thumb.url, class: "gallery-image" %>
+      </div>
+    <% end %>
+  </div>
+</div>

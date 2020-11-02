@@ -75,6 +75,9 @@ en:
   users:
     show:
       edit_profile: "Edit profile"
+      posts: "posts"
+      followers: "followers"
+      following: "following"
   posts:
     new_modal:
       title: "Create new post"
@@ -82,6 +85,8 @@ en:
       submit: "Post"
     create:
       notice: "Post created"
+    post:
+      ago: "ago"
   layouts:
     header:
       profile: "Profile"

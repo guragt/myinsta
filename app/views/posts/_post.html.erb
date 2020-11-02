@@ -13,6 +13,7 @@
     </div>
   <% end %>
   <div class="post-created">
-    <%= time_ago_in_words(post.created_at) %> ago
+    <%= time_ago_in_words(post.created_at) %>
+    <%= t('.ago') %>
   </div>
 </div> 
