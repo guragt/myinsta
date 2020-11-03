@@ -26,3 +26,19 @@
   margin: 12px;
 }
 
+.post-dropdown {
+  float: right;
+  padding: 20px;
+}
+
+.post-dropdown a {
+  color: #777;
+}
+
+.post-dropdown a:hover {
+  color: #333;
+}
+
+.delete {
+  color: #b94a48 !important;
+}

@@ -87,6 +87,8 @@ en:
       notice: "Post created"
     post:
       ago: "ago"
+      change: "Change post"
+      delete: "Delete post"
   layouts:
     header:
       profile: "Profile"

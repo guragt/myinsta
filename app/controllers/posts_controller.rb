@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: :index
+  before_action :obtain_post, only: %i[show]
 
   def index
     if signed_in?
@@ -8,6 +9,8 @@ class PostsController < ApplicationController
       redirect_to new_user_session_path
     end
   end
+
+  def show; end
 
   def create
     @post = current_user.posts.build(post_params)
@@ -25,5 +28,9 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:description, :image, :image_cache, :commentable)
+  end
+
+  def obtain_post
+    @post = Post.find(params[:id])
   end
 end

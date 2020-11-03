@@ -2,9 +2,20 @@
   <div class="post-header">
     <%=link_to image_tag(post.user.avatar.small_thumb.url), user_path(post.user), class: 'post-avatar'%>
     <%= link_to "#{post.user.nickname}", user_path(post.user), class: 'post-nick' %>
+    <% if current_user == post.user %>
+      <div class="dropdown post-dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <i class="glyphicon glyphicon-option-horizontal"></i>
+        </a>
+        <ul class="dropdown-menu">
+          <li><%= link_to t('.change'), "#" %></li>
+          <li><%= link_to t('.delete'), "#", class: 'delete' %></li>
+        </ul>
+      </div>
+    <% end %>
   </div>
   <div class="post-image">
-    <%= image_tag post.image.thumb.url %>
+    <%= link_to image_tag(post.image.thumb.url), post %>
   </div>
   <% if post.description.present? %>
     <div class="post-comment">

@@ -2,7 +2,7 @@
   <div class="gallery">
     <% @posts.each do |post| %>
       <div class="gallery-item">
-        <%= image_tag post.image.small_thumb.url, class: "gallery-image" %>
+        <%= link_to image_tag(post.image.small_thumb.url), post, class: "gallery-image" %>
       </div>
     <% end %>
   </div>
