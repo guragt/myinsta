@@ -85,9 +85,17 @@ en:
       submit: "Post"
     create:
       notice: "Post created"
+    edit:
+      title: "Edit post"
+      submit: "Update post"
+    update:
+      updated: "Post updated"
+    destroy:
+      destroyed: "Post deleted"
+      no_permission: "You have no permission to do this action"
     post:
       ago: "ago"
-      change: "Change post"
+      edit: "Edit post"
       delete: "Delete post"
   layouts:
     header:

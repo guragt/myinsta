@@ -8,8 +8,8 @@
           <i class="glyphicon glyphicon-option-horizontal"></i>
         </a>
         <ul class="dropdown-menu">
-          <li><%= link_to t('.change'), "#" %></li>
-          <li><%= link_to t('.delete'), "#", class: 'delete' %></li>
+          <li><%= link_to t('.edit'), edit_post_path(post) %></li>
+          <li><%= link_to t('.delete'), post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'delete' %></li>
         </ul>
       </div>
     <% end %>
