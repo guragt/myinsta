@@ -10,4 +10,17 @@
     <% end %>
   </div>
 
+  <div class="profile-stats">
+		<ul>
+			<li><span class="profile-stat-count"><%= @user.posts.count %></span> <%= t('.posts') %></li>
+      <li><span class="profile-stat-count">0</span> <%= t('.followers') %></li>
+      <li><span class="profile-stat-count">0</span> <%= t('.following') %></li>
+		</ul>
+	</div>
+
 	<div class="profile-real-name"><%= @user.name %></div>
+</div>
+
+<% if @posts.any? %>
+  <%= render 'gallery' %>
+<% end %>

@@ -85,6 +85,19 @@ p {
   border-radius: 50%;
 }
 
+.header-button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #777;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.header-button:hover {
+  color: #333;
+}
+
 /* forms */
 
 input, textarea, select, .uneditable-input {
@@ -103,6 +116,11 @@ input {
   margin-bottom: 15px;
 }
 
+#post_image {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
 .invalid-feedback {
   color: red;
   font-size: 12px;
@@ -119,7 +137,7 @@ input {
   margin-top: 10px;
 }
 
-#user_remember_me, #user_remove_avatar {
+#user_remember_me, #user_remove_avatar, #post_commentable {
   width: auto;
   margin-right: 5px;
 }

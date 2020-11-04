@@ -75,6 +75,28 @@ en:
   users:
     show:
       edit_profile: "Edit profile"
+      posts: "posts"
+      followers: "followers"
+      following: "following"
+  posts:
+    new_modal:
+      title: "Create new post"
+    form:
+      submit: "Post"
+    create:
+      notice: "Post created"
+    edit:
+      title: "Edit post"
+      submit: "Update post"
+    update:
+      updated: "Post updated"
+    destroy:
+      destroyed: "Post deleted"
+      no_permission: "You have no permission to do this action"
+    post:
+      ago: "ago"
+      edit: "Edit post"
+      delete: "Delete post"
   layouts:
     header:
       profile: "Profile"

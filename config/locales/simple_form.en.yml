@@ -21,6 +21,8 @@ en:
         password_confirmation: "Password confirmation"
         remember_me: "Remeber me"
         remove_avatar: "Remove avatar"
+        description: "Description"
+        commentable: "Allow comments for this post"
       user:
         edit:
           password: "New password"
