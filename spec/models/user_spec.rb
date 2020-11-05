@@ -3,6 +3,10 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   describe 'Associations' do
     it { is_expected.to have_many(:posts).dependent(:destroy) }
+    it { is_expected.to have_many(:active_relationships).dependent(:destroy) }
+    it { is_expected.to have_many(:passive_relationships).dependent(:destroy) }
+    it { is_expected.to have_many(:following).through(:active_relationships) }
+    it { is_expected.to have_many(:followers).through(:passive_relationships) }
   end
 
   describe 'Validations' do
