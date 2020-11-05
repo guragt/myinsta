@@ -12,9 +12,9 @@ class PostsController < ApplicationController
   def show; end
 
   def create
-    @post = current_user.posts.build(post_params)
+    @new_post = current_user.posts.build(post_params)
     respond_to do |format|
-      if @post.save
+      if @new_post.save
         flash[:success] = t('.notice')
         format.js { redirect_to root_path }
       else
