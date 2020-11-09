@@ -1,0 +1,5 @@
+<% case current_user.following_status_for(@user) 
+  when 'not_following' %><%= render 'users/follow' %>
+  <% when 'pending' %><%= render 'users/cancel' %>
+  <% when 'active' %><%= render 'users/unfollow' %>
+<% end %>

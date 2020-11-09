@@ -25,4 +25,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   mount_uploader :avatar, AvatarUploader
+
+  def following_status_for(other_user)
+    return 'not_following' unless following.include?(other_user)
+
+    Relationship.find_by(follower_id: id, followed_id: other_user.id).status
+  end
 end

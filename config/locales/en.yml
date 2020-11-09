@@ -78,6 +78,12 @@ en:
       posts: "posts"
       followers: "followers"
       following: "following"
+    follow:
+      follow: "Follow"
+    cancel:
+      cancel: "Undo request"
+    unfollow:
+      unfollow: "Unfollow"
   posts:
     new_modal:
       title: "Create new post"
