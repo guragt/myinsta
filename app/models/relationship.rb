@@ -1,4 +1,6 @@
 class Relationship < ApplicationRecord
+  scope :pending, -> { where(status: :pending) }
+
   enum status: { pending: 0, active: 1 }
 
   belongs_to :follower, class_name: 'User'

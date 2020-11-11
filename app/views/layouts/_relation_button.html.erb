@@ -1,0 +1,13 @@
+<div class="relation-button">
+  <div>
+    <%= simple_form_for item, remote: true do |f| %>
+      <%= f.input :followed_id, as: :hidden, input_html: { value: item.followed.id } %>
+      <%= f.input :follower_id, as: :hidden, input_html: { value: item.follower.id } %>
+      <%= f.input :status, as: :hidden, input_html: { value: 'active' } %>
+      <%= f.button :submit, t('.confirm'), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to t('.delete'), relationship_path(item), class: "btn btn-default", method: :delete, remote: true %>
+  </div>
+</div>

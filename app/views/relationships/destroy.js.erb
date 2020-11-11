@@ -1,1 +1,2 @@
 $("#follow-form").html("<%= escape_javascript(render('users/follow_form')) %>");
+$("#relation-<%= @relationship.id %>").html("<%= escape_javascript(render('layouts/delete_message')) %>");

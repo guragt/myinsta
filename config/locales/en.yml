@@ -109,3 +109,14 @@ en:
       settings: "Settings"
       log_in: "Log in"
       log_out: "Log out"
+      no_notification: "You don't have any notifications"
+    notification:
+      wants_to_follow: "wants to follow you"
+    relation_button:
+      confirm: "Confirm"
+      delete: "Delete"
+    confirm_message:
+      confirmed: "Confirmed"
+    delete_message:
+      deleted: "Deleted"
+
