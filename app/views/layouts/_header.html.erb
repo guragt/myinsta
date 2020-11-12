@@ -13,6 +13,11 @@
             <button class="dropdown-toggle header-button" data-toggle="dropdown">
               <i class="glyphicon glyphicon-bell"></i>
             </button>
+            <% if current_user.passive_relationships.pending.any? %>
+              <span id="notification-count">
+                <%= current_user.passive_relationships.pending.count %>
+              </span>
+            <% end %>
             <ul class="dropdown-menu">
               <% if current_user.passive_relationships.pending.any? %>
                 <%= render 'layouts/notification' %>

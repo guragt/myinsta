@@ -51,6 +51,12 @@
   font-size: 16px;
 }
 
+.profile-stat-link,
+.profile-stat-link:hover {
+  text-decoration: none;
+  color: black;
+}
+
 .profile-stat-count {
   font-weight: 600;
 }

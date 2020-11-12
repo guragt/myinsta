@@ -1,5 +1,6 @@
 class Relationship < ApplicationRecord
   scope :pending, -> { where(status: :pending) }
+  scope :active, -> { where(status: :active) }
 
   enum status: { pending: 0, active: 1 }
 

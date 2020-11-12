@@ -73,7 +73,11 @@ en:
         sign_up: "Sign up"
         forgot_pass: "Forgot your password"
   users:
-    show:
+    followers:
+      title: "Followers"
+    following:
+      title: "Following"
+    profile_info:
       edit_profile: "Edit profile"
       posts: "posts"
       followers: "followers"

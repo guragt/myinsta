@@ -128,6 +128,21 @@ p {
   float: right;
 }
 
+#notification-count {
+  position: absolute;
+  top: 3px;
+  left: 19px;
+  min-width: 20px;
+  text-align: center;
+  background-color: red;
+  border-radius: 50%;
+  color: white;
+  padding: 2px;
+  font-size: 10px;
+  font-family: sans-serif;
+  z-index: 5;
+}
+
 /* forms */
 
 input, textarea, select, .uneditable-input {

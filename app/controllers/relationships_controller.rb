@@ -14,7 +14,7 @@ class RelationshipsController < ApplicationController
   end
 
   def update
-    @relationship.update(relationship_params)
+    @relationship.update(status: 'active')
     respond_to do |format|
       format.html { redirect_to root_path }
       format.js

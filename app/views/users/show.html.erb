@@ -1,29 +1,4 @@
-<div class="profile">
-	<div class="profile-image">
-  	<%= image_tag @user.avatar.thumb.url %>
-  </div>
-
-	<div class="profile-user-settings">
-    <h1 class="profile-nick-name"><%= @user.nickname %></h1>
-    <% if @user == current_user %>
-      <%= link_to t('.edit_profile'), edit_user_registration_path, class: "btn btn-primary" %>
-    <% else %>
-      <div id='follow-form'>
-        <%= render 'follow_form' %>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="profile-stats">
-		<ul>
-			<li><span class="profile-stat-count"><%= @user.posts.count %></span> <%= t('.posts') %></li>
-      <li><span class="profile-stat-count">0</span> <%= t('.followers') %></li>
-      <li><span class="profile-stat-count">0</span> <%= t('.following') %></li>
-		</ul>
-	</div>
-
-	<div class="profile-real-name"><%= @user.name %></div>
-</div>
+<%= render 'profile_info' %>
 
 <% if @posts.any? %>
   <%= render 'gallery' %>
