@@ -75,11 +75,16 @@ en:
   users:
     followers:
       title: "Followers"
+      delete: "Delete"
     following:
       title: "Following"
-    profile_info:
+      unfollow: "Unfollow"
+    show:
       edit_profile: "Edit profile"
       posts: "posts"
+      followers: "followers"
+      following: "following"
+    profile_info:
       followers: "followers"
       following: "following"
     follow:
@@ -88,6 +93,10 @@ en:
       cancel: "Undo request"
     unfollow:
       unfollow: "Unfollow"
+    delete_message:
+      deleted: "Deleted"
+    unfollow_message:
+      unfollowed: "Unfollowed"
   posts:
     new_modal:
       title: "Create new post"

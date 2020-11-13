@@ -1,3 +1,21 @@
-<%= render 'profile_info' %>
-
-<h2><%= t('.title') %></h2>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= render 'profile_info' %>
+    <h2><%= t('.title') %></h2>
+    <ul class="follow-list">
+      <% @user.passive_relationships.active.each do |item| %>
+        <li class="follow-item">
+          <%= link_to image_tag(item.follower.avatar.small_thumb.url), user_path(item.follower), class: 'post-avatar' %>
+          <%= link_to "#{item.follower.nickname}", user_path(item.follower), class: 'post-nick' %>
+          <% if current_user == @user %>
+            <div id="pas-relation-<%= item.id %>" class="nav-relation">
+              <div class="follow-button">
+                <%= link_to t('.delete'), relationship_path(item), class: "btn btn-default", method: :delete, remote: true %>
+              </div>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
