@@ -7,14 +7,28 @@
     <h1 class="profile-nick-name"><%= @user.nickname %></h1>
     <% if @user == current_user %>
       <%= link_to t('.edit_profile'), edit_user_registration_path, class: "btn btn-primary" %>
+    <% else %>
+      <div id='follow-form'>
+        <%= render 'follow_form' %>
+      </div>
     <% end %>
   </div>
 
   <div class="profile-stats">
 		<ul>
-			<li><span class="profile-stat-count"><%= @user.posts.count %></span> <%= t('.posts') %></li>
-      <li><span class="profile-stat-count">0</span> <%= t('.followers') %></li>
-      <li><span class="profile-stat-count">0</span> <%= t('.following') %></li>
+			<li>
+        <span class="profile-stat-count"><%= @user.posts.count %></span> <%= t('.posts') %>
+      </li>
+      <li>
+        <%= link_to followers_user_path(@user), class: "profile-stat-link" do %>
+          <span class='profile-stat-count'><%= @user.passive_relationships.active.count %></span> <%= t('.followers') %>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to following_user_path(@user), class: "profile-stat-link" do %>
+          <span class="profile-stat-count"><%= @user.active_relationships.active.count %></span> <%= t('.following') %>
+        <% end %>
+      </li>
 		</ul>
 	</div>
 

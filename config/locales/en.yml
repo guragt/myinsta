@@ -73,11 +73,30 @@ en:
         sign_up: "Sign up"
         forgot_pass: "Forgot your password"
   users:
+    followers:
+      title: "Followers"
+      delete: "Delete"
+    following:
+      title: "Following"
+      unfollow: "Unfollow"
     show:
       edit_profile: "Edit profile"
       posts: "posts"
       followers: "followers"
       following: "following"
+    profile_info:
+      followers: "followers"
+      following: "following"
+    follow:
+      follow: "Follow"
+    cancel:
+      cancel: "Undo request"
+    unfollow:
+      unfollow: "Unfollow"
+    delete_message:
+      deleted: "Deleted"
+    unfollow_message:
+      unfollowed: "Unfollowed"
   posts:
     new_modal:
       title: "Create new post"
@@ -103,3 +122,14 @@ en:
       settings: "Settings"
       log_in: "Log in"
       log_out: "Log out"
+      no_notification: "You don't have any notifications"
+    notification:
+      wants_to_follow: "wants to follow you"
+    relation_button:
+      confirm: "Confirm"
+      delete: "Delete"
+    confirm_message:
+      confirmed: "Confirmed"
+    delete_message:
+      deleted: "Deleted"
+

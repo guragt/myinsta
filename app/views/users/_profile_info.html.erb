@@ -1,0 +1,16 @@
+<div class="medium-info">
+  <%= link_to image_tag(@user.avatar.medium_thumb.url), @user %>
+  <%= link_to "#{@user.nickname}", @user, class: "medium-info-nick" %>
+	<ul>
+    <li>
+      <%= link_to followers_user_path(@user), class: "profile-stat-link" do %>
+        <span class='profile-stat-count'><%= @user.passive_relationships.active.count %></span> <%= t('.followers') %>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to following_user_path(@user), class: "profile-stat-link" do %>
+        <span class="profile-stat-count"><%= @user.active_relationships.active.count %></span> <%= t('.following') %>
+      <% end %>
+    </li>
+	</ul>
+</div>

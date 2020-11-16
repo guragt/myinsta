@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def index
     return redirect_to new_user_session_path unless signed_in?
 
-    @posts = current_user.posts.order(created_at: :desc)
+    @posts = current_user.feed
   end
 
   def show; end

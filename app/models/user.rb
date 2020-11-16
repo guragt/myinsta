@@ -25,4 +25,17 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   mount_uploader :avatar, AvatarUploader
+
+  def following_status_for(other_user)
+    return 'not_following' unless following.include?(other_user)
+
+    Relationship.find_by(follower_id: id, followed_id: other_user.id).status
+  end
+
+  def feed
+    following_ids = "SELECT followed_id FROM relationships
+                    WHERE follower_id = :user_id AND status = 1"
+    Post.where("user_id IN (#{following_ids})
+                OR user_id = :user_id", user_id: id).order(created_at: :desc)
+  end
 end

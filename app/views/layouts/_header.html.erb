@@ -10,6 +10,25 @@
             </button>
           </li>
           <li class="dropdown">
+            <button class="dropdown-toggle header-button" data-toggle="dropdown">
+              <i class="glyphicon glyphicon-bell"></i>
+            </button>
+            <% if current_user.passive_relationships.pending.any? %>
+              <span id="notification-count">
+                <%= current_user.passive_relationships.pending.count %>
+              </span>
+            <% end %>
+            <ul class="dropdown-menu">
+              <% if current_user.passive_relationships.pending.any? %>
+                <%= render 'layouts/notification' %>
+              <% else %>
+                <li class="no-notification">
+                  <%= t('.no_notification') %>
+                </li>
+              <% end %>
+            </ul>
+          </li>
+          <li class="dropdown">
             <a href="#" id="small-avatar" class="dropdown-toggle" data-toggle="dropdown">
               <%= image_tag current_user.avatar.small_thumb.url %>
             </a>

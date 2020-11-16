@@ -90,12 +90,57 @@ p {
   border: none;
   outline: none;
   color: #777;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  font-size: 20px;
+  padding: 11px;
 }
 
 .header-button:hover {
   color: #333;
+}
+
+.no-notification {
+  padding: 10px 20px;
+  font-style: italic;
+  color: #777777;
+  white-space: nowrap;
+}
+
+.notification {
+  white-space: nowrap;
+  width: 600px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.notification:last-child {
+  border: none;
+}
+
+.relation-button {
+  padding: 13px;
+}
+
+.relation-message {
+  color: #777777;
+  padding: 20px;
+}
+
+.relation-right {
+  float: right;
+}
+
+#notification-count {
+  position: absolute;
+  top: 3px;
+  left: 19px;
+  min-width: 18px;
+  text-align: center;
+  background-color: red;
+  border-radius: 50%;
+  color: white;
+  padding: 2px;
+  font-size: 10px;
+  font-family: sans-serif;
+  z-index: 5;
 }
 
 /* forms */
@@ -147,6 +192,14 @@ input {
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
+}
+
+#follow-form, #follow-form div, .notification div {
+  display: inline-block;
+}
+
+.edit-form {
+  margin-bottom: 30px;
 }
 
 /* flash */

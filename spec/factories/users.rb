@@ -11,13 +11,13 @@ FactoryBot.define do
       end
     end
 
-    trait :with_following do 
+    trait :with_following do
       after(:create) do |user|
         user.following << create_list(:user, 2)
       end
     end
 
-    trait :with_followers do 
+    trait :with_followers do
       after(:create) do |user|
         user.followers << create_list(:user, 2)
       end
