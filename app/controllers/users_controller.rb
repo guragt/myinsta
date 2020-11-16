@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @posts = @user.posts.order(created_at: :desc)
+    @active_relationships = current_user.active_relationships
   end
 
   def following

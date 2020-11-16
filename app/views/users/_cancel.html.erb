@@ -1,1 +1,1 @@
-<%= link_to t('.cancel'), relationship_path(current_user.active_relationships.find_by(followed_id: @user.id)), class: "btn btn-primary", method: :delete, remote: true %>
+<%= link_to t('.cancel'), relationship_path(@active_relationships.find_by(followed_id: @user.id)), class: "btn btn-primary", method: :delete, remote: true %>
