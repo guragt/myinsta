@@ -6,17 +6,13 @@ class RelationshipsController < ApplicationController
     @relationship = current_user.active_relationships.build(relationship_params)
     @user = @relationship.followed
     respond_to do |format|
-      if @relationship.save
-        format.html { redirect_to @user }
-        format.js
-      end
+      format.js if @relationship.save
     end
   end
 
   def update
-    @relationship.update(status: 'active')
+    @relationship.active!
     respond_to do |format|
-      format.html { redirect_to root_path }
       format.js
     end
   end
@@ -25,7 +21,6 @@ class RelationshipsController < ApplicationController
     @user = @relationship.followed
     @relationship.destroy
     respond_to do |format|
-      format.html { redirect_to @user }
       format.js
     end
   end
@@ -33,7 +28,7 @@ class RelationshipsController < ApplicationController
   private
 
   def relationship_params
-    params.require(:relationship).permit(:follower_id, :followed_id, :status)
+    params.require(:relationship).permit(:followed_id)
   end
 
   def obtain_relationship
