@@ -17,6 +17,9 @@
   <div class="post-image">
     <%= link_to image_tag(post.image.thumb.url), post %>
   </div>
+  <div id="post-like-<%= post.id %>" class="post-like">
+    <%= render 'posts/like_form', post: post %>
+  </div>
   <% if post.description.present? %>
     <div class="post-comment">
       <%= link_to "#{post.user.nickname}", user_path(post.user), class: 'post-nick' %>

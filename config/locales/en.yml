@@ -116,6 +116,9 @@ en:
       ago: "ago"
       edit: "Edit post"
       delete: "Delete post"
+    like_form:
+      like: "like"
+      likes: "likes" 
   layouts:
     header:
       profile: "Profile"

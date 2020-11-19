@@ -18,12 +18,12 @@
 
 .post-created {
   font-size: 12px;
-  margin: 12px;
+  margin: 8px 12px;
   color: #777;
 }
 
 .post-comment {
-  margin: 12px;
+  margin: 3px 12px 8px;
 }
 
 .post-dropdown {
@@ -47,4 +47,42 @@
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+}
+
+.post-like {
+  margin: 8px 12px 0;
+  display: inline-block;
+}
+
+.post-like div {
+  display: inline-block;
+}
+
+.post-like-count {
+  position: relative;
+  bottom: 3px;
+  left: 3px;
+}
+
+.like-button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 0;
+  font-size: 20px;
+}
+
+.liked, .liked:hover {
+  color: red;
+}
+
+
+
+.header-button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #777;
+  font-size: 20px;
+  padding: 11px;
 }

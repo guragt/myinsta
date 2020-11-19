@@ -1,0 +1,25 @@
+<div class="like-form">
+  <% if post.likes.find_by(user_id: current_user.id) %>
+    <%= link_to like_path(post.likes.find_by(user_id: current_user.id)), class: "like-button liked", method: :delete, remote: true do %>
+      <i class="glyphicon glyphicon-heart"></i>
+    <% end %>
+  <% else %>
+    <%= simple_form_for post.likes.build, remote: true do |f| %>
+      <%= f.input :likeable_type, as: :hidden, input_html: { value: 'Post' } %>
+      <%= f.input :likeable_id, as: :hidden, input_html: { value: post.id } %>
+      <%= button_tag type: 'submit', class: "like-button" do %>
+        <i class="glyphicon glyphicon-heart-empty"></i>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+<% if post.likes.count > 0 %>
+  <span class="post-like-count">
+    <%= post.likes.count %>
+    <% if post.likes.count == 1 %>
+      <%= t('.like') %>
+    <% else %>
+      <%= t('.likes') %>
+    <% end %>
+  </span>
+<% end %>
