@@ -5,13 +5,13 @@
         <%= image_tag post.image.small_thumb.url, class: "gallery-image" %>
         <%= link_to post do %>
           <div class="gallery-item-info">
-					  <ul>
-						  <li class="gallery-item-likes">
+            <ul>
+              <li class="gallery-item-likes">
                 <i class="glyphicon glyphicon-heart"></i>
                 <%= post.likes.count %>
               </li>
-					  </ul>
-				  </div>
+            </ul>
+          </div>
         <% end %>
       </div>
     <% end %>
