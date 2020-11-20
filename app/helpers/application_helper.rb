@@ -6,4 +6,8 @@ module ApplicationHelper
     when 'active' then 'unfollow'
     end
   end
+
+  def likes_count_for(likeable)
+    likeable.likes.count
+  end
 end
