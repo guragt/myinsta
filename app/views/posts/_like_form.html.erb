@@ -15,11 +15,6 @@
 </div>
 <% if post.likes.count > 0 %>
   <span class="post-like-count">
-    <%= post.likes.count %>
-    <% if post.likes.count == 1 %>
-      <%= t('.like') %>
-    <% else %>
-      <%= t('.likes') %>
-    <% end %>
+    <%= t('.like', count: post.likes.count) %>
   </span>
 <% end %>

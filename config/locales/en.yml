@@ -117,8 +117,9 @@ en:
       edit: "Edit post"
       delete: "Delete post"
     like_form:
-      like: "like"
-      likes: "likes" 
+      like:
+        one: "1 like"
+        other: "%{count} likes" 
   layouts:
     header:
       profile: "Profile"
