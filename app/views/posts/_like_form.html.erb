@@ -1,20 +1,20 @@
 <div class="like-form">
-  <% if post.likes.find_by(user_id: current_user.id) %>
-    <%= link_to like_path(post.likes.find_by(user_id: current_user.id)), class: "like-button liked", method: :delete, remote: true do %>
+  <% if likeable.likes.find_by(user_id: current_user.id) %>
+    <%= link_to like_path(likeable.likes.find_by(user_id: current_user.id)), class: "like-button liked", method: :delete, remote: true do %>
       <i class="glyphicon glyphicon-heart"></i>
     <% end %>
   <% else %>
-    <%= simple_form_for post.likes.build, remote: true do |f| %>
-      <%= f.input :likeable_type, as: :hidden, input_html: { value: 'Post' } %>
-      <%= f.input :likeable_id, as: :hidden, input_html: { value: post.id } %>
+    <%= simple_form_for likeable.likes.build, remote: true do |f| %>
+      <%= f.input :likeable_type, as: :hidden, input_html: { value: likeable.class.name } %>
+      <%= f.input :likeable_id, as: :hidden, input_html: { value: likeable.id } %>
       <%= button_tag type: 'submit', class: "like-button" do %>
         <i class="glyphicon glyphicon-heart-empty"></i>
       <% end %>
     <% end %>
   <% end %>
 </div>
-<% if post.likes.count > 0 %>
+<% if likeable.likes.count > 0 %>
   <span class="post-like-count">
-    <%= t('.like', count: post.likes.count) %>
+    <%= t('.like', count: likeable.likes.count) %>
   </span>
 <% end %>

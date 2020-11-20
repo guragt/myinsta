@@ -18,7 +18,7 @@
     <%= link_to image_tag(post.image.thumb.url), post %>
   </div>
   <div id="post-like-<%= post.id %>" class="post-like">
-    <%= render 'posts/like_form', post: post %>
+    <%= render 'posts/like_form', likeable: post %>
   </div>
   <% if post.description.present? %>
     <div class="post-comment">
