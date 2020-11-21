@@ -13,8 +13,4 @@
     <% end %>
   <% end %>
 </div>
-<% if likes_count_for(likeable) > 0 %>
-  <span class="post-like-count">
-    <%= t('.like', count: likes_count_for(likeable)) %>
-  </span>
-<% end %>
+<%= likes_count_block(likeable.likes.count) %>
