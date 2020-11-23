@@ -28,5 +28,11 @@ FactoryBot.define do
         create_list(:like, 2, user: user)
       end
     end
+
+    trait :with_comments do
+      after(:create) do |user|
+        create_list(:comment, 2, user: user)
+      end
+    end
   end
 end
