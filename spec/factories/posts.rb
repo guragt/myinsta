@@ -11,5 +11,11 @@ FactoryBot.define do
         create_list(:like, 2, likeable: post)
       end
     end
+
+    trait :with_comments do
+      after(:create) do |post|
+        create_list(:comment, 2, parent: post)
+      end
+    end
   end
 end
