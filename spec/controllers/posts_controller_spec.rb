@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
   let!(:user) { create(:user, :with_posts) }
+  let!(:other_post) { create(:post) }
   let!(:post_valid_params) { attributes_for(:post) }
   let!(:post_invalid_params) { { description: 'a' * 2001, image: '' } }
 
@@ -70,6 +71,21 @@ RSpec.describe PostsController, type: :controller do
         end
       end
 
+      context 'user is not author of post' do
+        before do
+          put :update, params: { id: other_post,
+                                 post: post_valid_params.merge!(description: 'Valid description') }
+        end
+        it 'redirects to root_path' do
+          expect(response).to redirect_to(root_path)
+          expect(flash[:warning]).to be_present
+        end
+
+        it 'does not update post description' do
+          expect(user.posts.first.description).to_not eq(post_valid_params[:description])
+        end
+      end
+
       context 'with invalid params' do
         before do
           put :update, params: { id: user.posts.first,
@@ -87,24 +103,50 @@ RSpec.describe PostsController, type: :controller do
     end
 
     describe 'GET#edit' do
-      it 'renders edit template' do
-        get :edit, params: { id: user.posts.first }
-        expect(response).to have_http_status(:success)
-        expect(response).to render_template('edit')
+      context 'user is author of post' do
+        it 'renders edit template' do
+          get :edit, params: { id: user.posts.first }
+          expect(response).to have_http_status(:success)
+          expect(response).to render_template('edit')
+        end
+      end
+
+      context 'user is not author of post' do
+        it 'redirects to root_path' do
+          get :edit, params: { id: other_post }
+          expect(response).to redirect_to(root_path)
+          expect(flash[:warning]).to be_present
+        end
       end
     end
 
     describe 'DELETE#destroy' do
-      it 'deletes post' do
-        expect do
+      context 'user is author of post' do
+        it 'deletes post' do
+          expect do
+            delete :destroy, params: { id: user.posts.first }
+          end.to change(Post, :count).by(-1)
+        end
+
+        it 'redirects to root_path' do
           delete :destroy, params: { id: user.posts.first }
-        end.to change(Post, :count).by(-1)
+          expect(response).to redirect_to(root_path)
+          expect(flash[:success]).to be_present
+        end
       end
 
-      it 'redirects to root_path' do
-        delete :destroy, params: { id: user.posts.first }
-        expect(response).to redirect_to(root_path)
-        expect(flash[:success]).to be_present
+      context 'user is not author of post' do
+        it 'does not delete post' do
+          expect do
+            delete :destroy, params: { id: other_post }
+          end.not_to change(Post, :count)
+        end
+
+        it 'redirects to root_path' do
+          delete :destroy, params: { id: other_post }
+          expect(response).to redirect_to(root_path)
+          expect(flash[:warning]).to be_present
+        end
       end
     end
   end
