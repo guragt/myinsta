@@ -119,7 +119,11 @@ en:
     like_form:
       like:
         one: "1 like"
-        other: "%{count} likes" 
+        other: "%{count} likes"
+  comments:
+    comment_form:
+      comment_placeholder: "Add a comment..."
+      submit: "Post"
   layouts:
     header:
       profile: "Profile"

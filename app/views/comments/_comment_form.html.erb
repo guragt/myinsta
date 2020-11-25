@@ -1,0 +1,6 @@
+<%= simple_form_for (comment || parent.comments.build), remote: true do |f| %>
+  <%= f.input :body, placeholder: t('.comment_placeholder'), label: false %>
+  <%= f.input :parent_id, as: :hidden, input_html: { value: parent.id } %>
+  <%= f.input :parent_type, as: :hidden, input_html: { value: parent.class.name.constantize } %>
+  <%= f.button :submit, t('.submit'), class: "btn btn-link comment-submit" %>
+<% end %>

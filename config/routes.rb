@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :posts, only: %i[show create edit update destroy]
   resources :relationships, only: %i[create update destroy]
   resources :likes, only: %i[create destroy]
+  resources :comments, only: %i[create update destroy]
 end

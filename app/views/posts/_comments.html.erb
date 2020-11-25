@@ -1,0 +1,13 @@
+<% if parent.comments.any? %>
+  <% parent.comments.each do |comment| %>
+    <li>
+      <div class="post-comment">
+        <%= link_to "#{comment.user.nickname}", user_path(comment.user), class: 'post-nick' %>
+        <%= comment.body %>
+      </div>
+      <ul id="comments-comment-<%= comment.id %>">
+        <%= render 'posts/comments', parent: comment %>
+      </ul>
+    </li>
+  <% end %>
+<% end %>
