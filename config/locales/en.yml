@@ -123,6 +123,7 @@ en:
   comments:
     comment_form:
       comment_placeholder: "Add a comment..."
+      reply_placeholder: "Reply to %{nickname} ..."
       submit: "Post"
   layouts:
     header:

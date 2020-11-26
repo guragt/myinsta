@@ -1,5 +1,9 @@
 <%= simple_form_for (comment || parent.comments.build), remote: true do |f| %>
-  <%= f.input :body, placeholder: t('.comment_placeholder'), label: false %>
+  <% if parent.instance_of?(Post) %>
+    <%= f.input :body, placeholder: t('.comment_placeholder'), label: false %>
+  <% else %>
+    <%= f.input :body, placeholder: t('.reply_placeholder', nickname: parent.user.nickname), abel: false %>
+  <% end %>
   <%= f.input :parent_id, as: :hidden, input_html: { value: parent.id } %>
   <%= f.input :parent_type, as: :hidden, input_html: { value: parent.class.name.constantize } %>
   <%= f.button :submit, t('.submit'), class: "btn btn-link comment-submit" %>

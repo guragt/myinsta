@@ -10,4 +10,10 @@ class Comment < ApplicationRecord
                    length: { maximum: 1000 }
 
   acts_as_paranoid
+
+  def parent_post
+    return parent if parent_type == 'Post'
+
+    parent.parent_post
+  end
 end

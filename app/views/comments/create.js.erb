@@ -1,6 +1,7 @@
 <% if @comment.persisted? %>
   $("#comments-<%= @comment.parent_type.downcase %>-<%= @comment.parent_id %>").html("<%= escape_javascript(render partial: 'posts/comments', locals: { parent: @comment.parent }) %>");
-  $("#new-comment-form-<%= @comment.parent_id %>").html("<%= escape_javascript(render partial: 'comments/comment_form', locals: { comment: nil, parent: @comment.parent }) %>");
+  $("#new-comment-form-<%= @comment.parent_post.id %>").html("<%= escape_javascript(render partial: 'comments/comment_form', locals: { comment: nil, parent: @comment.parent_post }) %>");
+  $(".post-comment").removeClass("highlighted");
 <% else %>
-  $("#new-comment-form-<%= @comment.parent_id %>").html("<%= escape_javascript(render partial: 'comments/comment_form', locals: { comment: @comment, parent: @comment.parent }) %>");
+  $("#new-comment-form-<%= @comment.parent_post.id %>").html("<%= escape_javascript(render partial: 'comments/comment_form', locals: { comment: @comment, parent: @comment.parent }) %>");
 <% end %>

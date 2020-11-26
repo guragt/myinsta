@@ -2,7 +2,7 @@
   max-width: 616px;
   min-width: 616px;
   border: 1px solid #e7e7e7 ;
-  border-radius: 3px;
+  border-radius: 4px;
   margin: 40px auto;
   background-color: #f8f8f8;
 }
@@ -24,7 +24,11 @@
 }
 
 .post-comment {
-  margin: 3px 15px 8px;
+  line-height: 100%;
+  width: fit-content;
+  margin: 2px 15px 7px;
+  padding: 3px;
+  border-radius: 4px;
 }
 
 .post-dropdown {
@@ -117,10 +121,11 @@
   left: 530px;
 }
 
+.comment-link:link, .comment-link:hover, .comment-link:visited {
+  color: #777;
+  font-size: 12px;
+}
 
-
-
-
-
-
-
+.highlighted {
+  background-color: rgb(220, 220, 220);
+}

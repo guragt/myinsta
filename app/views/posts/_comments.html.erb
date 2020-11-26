@@ -1,9 +1,11 @@
 <% if parent.comments.any? %>
   <% parent.comments.each do |comment| %>
     <li>
-      <div class="post-comment">
+      <div class="post-comment" id="comment-<%= comment.id %>">
         <%= link_to "#{comment.user.nickname}", user_path(comment.user), class: 'post-nick' %>
         <%= comment.body %>
+        <br>
+        <%= link_to "Reply", reply_comment_path(comment), class: 'comment-link', remote: true %>
       </div>
       <ul id="comments-comment-<%= comment.id %>">
         <%= render 'posts/comments', parent: comment %>

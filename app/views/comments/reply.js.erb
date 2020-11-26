@@ -1,0 +1,3 @@
+$("#new-comment-form-<%= @parent.parent_post.id %>").html("<%= escape_javascript(render partial: 'comments/comment_form', locals: { comment: nil, parent: @parent }) %>");
+$(".post-comment").removeClass("highlighted");
+$("#comment-<%= @parent.id %>").addClass("highlighted");
