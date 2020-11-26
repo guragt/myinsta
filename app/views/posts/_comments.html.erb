@@ -5,7 +5,10 @@
         <%= link_to "#{comment.user.nickname}", user_path(comment.user), class: 'post-nick' %>
         <%= comment.body %>
         <br>
-        <%= link_to "Reply", reply_comment_path(comment), class: 'comment-link', remote: true %>
+        <%= link_to t('.reply'), reply_comment_path(comment), class: 'comment-link', remote: true %>
+        <% if current_user == comment.user %>
+          <%= link_to t('.delete'), comment_path(comment), class: "comment-link", data: { confirm: t('.sure') }, method: :delete, remote: true %>
+        <% end %>
       </div>
       <ul id="comments-comment-<%= comment.id %>">
         <%= render 'posts/comments', parent: comment %>

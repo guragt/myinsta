@@ -9,6 +9,14 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = current_user.comments.find(params[:id])
+    @comment.destroy
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def reply
     @parent = Comment.find(params[:id])
     respond_to do |format|

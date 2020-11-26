@@ -120,6 +120,10 @@ en:
       like:
         one: "1 like"
         other: "%{count} likes"
+    comments:
+      reply: "Reply"
+      delete: "Delete"
+      sure: "Are you sure?"
   comments:
     comment_form:
       comment_placeholder: "Add a comment..."
