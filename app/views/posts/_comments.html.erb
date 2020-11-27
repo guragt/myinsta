@@ -5,6 +5,9 @@
         <%= link_to "#{comment.user.nickname}", user_path(comment.user), class: 'post-nick' %>
         <%= comment.body %>
         <br>
+        <div id="like-comment-<%= comment.id %>" class="comment-like">
+          <%= render 'posts/like_form', likeable: comment %>
+        </div>
         <%= link_to t('.reply'), reply_comment_path(comment), class: 'comment-link', remote: true %>
         <% if current_user == comment.user %>
           <%= link_to t('.delete'), comment_path(comment), class: "comment-link", data: { confirm: t('.sure') }, method: :delete, remote: true %>

@@ -59,14 +59,22 @@
   display: inline-block;
 }
 
-.post-like div {
+.comment-like {
   display: inline-block;
 }
 
-.post-like-count {
+.post-like div, .comment-like div {
+  display: inline-block;
+}
+
+.post-like .like-count {
   position: relative;
   bottom: 3px;
   left: 3px;
+}
+
+.comment-like .like-count {
+  font-size: 12px;
 }
 
 .like-button {
@@ -74,7 +82,14 @@
   outline: none;
   border: none;
   padding: 0;
+}
+
+.post-like .like-button {
   font-size: 20px;
+}
+
+.comment-like .like-button {
+  font-size: 12px;
 }
 
 .liked, .liked:hover {
@@ -124,6 +139,7 @@
 .comment-link:link, .comment-link:hover, .comment-link:visited {
   color: #777;
   font-size: 12px;
+  margin-left: 10px;
 }
 
 .highlighted {

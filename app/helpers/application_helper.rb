@@ -10,6 +10,6 @@ module ApplicationHelper
   def likes_count_block(likes_count)
     return if likes_count.zero?
 
-    tag.span(t('posts.like_form.like', count: likes_count), class: 'post-like-count')
+    tag.span(t('posts.like_form.like', count: likes_count), class: 'like-count')
   end
 end
