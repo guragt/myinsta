@@ -116,19 +116,20 @@ en:
       ago: "ago"
       edit: "Edit post"
       delete: "Delete post"
+  likes:
     like_form:
       like:
         one: "1 like"
         other: "%{count} likes"
-    comments:
-      reply: "Reply"
-      delete: "Delete"
-      sure: "Are you sure?"
   comments:
     comment_form:
       comment_placeholder: "Add a comment..."
       reply_placeholder: "Reply to %{nickname} ..."
       submit: "Post"
+    comments_list:
+      reply: "Reply"
+      delete: "Delete"
+      sure: "Are you sure?"
   layouts:
     header:
       profile: "Profile"

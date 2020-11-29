@@ -18,16 +18,18 @@
     <%= link_to image_tag(post.image.thumb.url), post %>
   </div>
   <div id="like-post-<%= post.id %>" class="post-like">
-    <%= render 'posts/like_form', likeable: post %>
+    <%= render 'likes/like_form', likeable: post %>
   </div>
   <% if post.description.present? %>
     <div class="post-comment">
-      <%= link_to "#{post.user.nickname}", user_path(post.user), class: 'post-nick' %>
-      <%= post.description%>
+      <div class="comment-body">
+        <%= link_to "#{post.user.nickname}", user_path(post.user), class: 'post-nick' %>
+        <%= post.description%>
+      </div>
     </div>
   <% end %>
   <ul id="comments-post-<%= post.id %>" class="nested-comments">
-    <%= render 'posts/comments', parent: post %>
+    <%= render 'comments/comments_list', parent: post %>
   </ul>
   <div class="post-created">
     <%= time_ago_in_words(post.created_at) %>
@@ -36,4 +38,4 @@
   <div id="new-comment-form-<%= post.id %>" class="new-comment-form">
     <%= render 'comments/comment_form', parent: post, comment: nil %>
   </div>
-</div> 
+</div>
