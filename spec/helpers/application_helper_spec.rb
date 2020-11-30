@@ -27,12 +27,12 @@ RSpec.describe ApplicationHelper, type: :helper do
 
     it 'count greater then 1' do
       expect(likes_count_block(count_two))
-        .to eq("<span class=\"post-like-count\">#{count_two} likes</span>")
+        .to eq("<span class=\"like-count\">#{count_two} likes</span>")
     end
 
     it 'count equal 1' do
       expect(likes_count_block(count_one))
-        .to eq("<span class=\"post-like-count\">#{count_one} like</span>")
+        .to eq("<span class=\"like-count\">#{count_one} like</span>")
     end
 
     it 'count equal 0' do
