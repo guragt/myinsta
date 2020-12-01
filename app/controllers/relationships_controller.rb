@@ -6,24 +6,16 @@ class RelationshipsController < ApplicationController
   def create
     relationship = @active_relationships.build(relationship_params)
     @user = relationship.followed
-    respond_to do |format|
-      format.js if relationship.save
-    end
+    relationship.save
   end
 
   def update
     @relationship.active!
-    respond_to do |format|
-      format.js
-    end
   end
 
   def destroy
     @user = @relationship.followed
     @relationship.destroy
-    respond_to do |format|
-      format.js
-    end
   end
 
   private

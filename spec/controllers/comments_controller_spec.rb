@@ -52,8 +52,8 @@ RSpec.describe CommentsController, type: :controller do
       it 'does not create a new comment' do
         expect do
           post :create, xhr: true, params: { comment: { parent_type: parent.class.name,
-                                                          parent_id: parent.id,
-                                                          body: 'Valid body' } }
+                                                        parent_id: parent.id,
+                                                        body: 'Valid body' } }
         end.not_to change(Comment, :count)
       end
     end
