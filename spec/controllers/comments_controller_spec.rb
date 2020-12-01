@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe CommentsController, type: :controller do
   let!(:user) { create(:user, :with_comments) }
   let!(:parent) { create(:post) }
+  let!(:not_commentable) { create(:not_commentable_post) }
   let!(:comment) { create(:comment) }
 
   context 'authorized user' do
@@ -25,6 +26,17 @@ RSpec.describe CommentsController, type: :controller do
             post :create, xhr: true, params: { comment: { parent_type: parent.class.name,
                                                           parent_id: parent.id,
                                                           body: '' } }
+          end.not_to change(Comment, :count)
+        end
+      end
+
+      context 'comments are not allowed for post' do
+        it 'does not create a new comment' do
+          expect do
+            post :create, xhr: true,
+                          params: { comment: { parent_type: not_commentable.class.name,
+                                               parent_id: not_commentable.id,
+                                               body: 'Valid body' } }
           end.not_to change(Comment, :count)
         end
       end

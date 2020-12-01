@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = current_user.comments.build(comment_params)
-    @comment.save
+    @comment.save if @comment.parent_post.commentable?
   end
 
   def destroy
