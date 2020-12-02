@@ -126,10 +126,12 @@ en:
       comment_placeholder: "Add a comment..."
       reply_placeholder: "Reply to %{nickname} ..."
       submit: "Post"
-    comments_list:
+    full_comments_list:
       reply: "Reply"
       delete: "Delete"
       sure: "Are you sure?"
+    short_comments_list:
+      all_comments: "View all %{count} comments"
   layouts:
     header:
       profile: "Profile"

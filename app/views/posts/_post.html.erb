@@ -29,9 +29,15 @@
     </div>
   <% end %>
    <% if post.commentable? %>
-    <ul id="comments-post-<%= post.id %>" class="nested-comments">
-      <%= render 'comments/comments_list', parent: post %>
-    </ul>
+    <% if full_list %>
+      <ul id="comments-post-<%= post.id %>" class="nested-comments">
+        <%= render 'comments/full_comments_list', parent: post %>
+      </ul>
+    <% else %>
+      <ul id="short-comments-post-<%= post.id %>" class="nested-comments">
+        <%= render 'comments/short_comments_list', parent: post %>
+      </ul>
+    <% end %>
   <% end %>
   <div class="post-created">
     <%= time_ago_in_words(post.created_at) %>

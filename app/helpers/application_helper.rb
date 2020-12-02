@@ -12,4 +12,8 @@ module ApplicationHelper
 
     tag.span(t('likes.like_form.like', count: likes_count), class: 'like-count')
   end
+
+  def comments_count_for(parent)
+    parent.comments.count
+  end
 end

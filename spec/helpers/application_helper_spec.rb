@@ -39,4 +39,11 @@ RSpec.describe ApplicationHelper, type: :helper do
       expect(likes_count_block(count_zero)).to be_nil
     end
   end
+
+  describe 'Comments count'
+  let!(:post) { create(:post, :with_comments) }
+
+  it 'should return comments count' do
+    expect(comments_count_for(post)).to eq(post.comments.count)
+  end
 end

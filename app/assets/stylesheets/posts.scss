@@ -152,3 +152,12 @@
 .highlighted {
   background-color: rgb(220, 220, 220);
 }
+
+.view-all,
+.view-all:link,
+.view-all:hover {
+  margin: 2px 15px 6px;
+  padding-left: 3px;
+  color: #777;
+  text-decoration: none;
+}
