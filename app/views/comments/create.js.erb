@@ -2,7 +2,7 @@
   $("#short-comments-<%= @comment.parent_type.downcase %>-<%= @comment.parent_id %>").html("<%= escape_javascript(render partial: 'short_comments_list', locals: { parent: @comment.parent }) %>");
   <%= render 'refresh_comments', comment: @comment %>
   <%= render 'remove_highlighting' %>
-  $("#new-comment-form-<%= @comment.parent_post.id %>").html("<%= escape_javascript(render partial: 'comment_form', locals: { comment: nil, parent: @comment.parent_post }) %>");
+  <%= render 'refresh_form', id: @comment.parent_post.id, comment: nil, parent: @comment.parent_post %>
 <% else %>
-  $("#new-comment-form-<%= @comment.parent_post.id %>").html("<%= escape_javascript(render partial: 'comment_form', locals: { comment: @comment, parent: @comment.parent }) %>");
+  <%= render 'refresh_form', id: @comment.parent_post.id, comment: @comment, parent: @comment.parent %>
 <% end %>
