@@ -1,0 +1,1 @@
+$("#comments-<%= comment.parent_type.downcase %>-<%= comment.parent_id %>").html("<%= escape_javascript(render partial: 'comments/full_comments_list', locals: { parent: comment.parent }) %>");

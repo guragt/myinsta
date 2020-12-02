@@ -1,5 +1,5 @@
 <% if @posts.any? %>
-  <%= render @posts %>  
+  <%= render @posts, full_list: false %>  
 <% else %>
   <div class="center jumbotron">
     <h1>Hello <%= current_user.name %></h1>

@@ -17,5 +17,9 @@ FactoryBot.define do
         create_list(:comment, 2, parent: post)
       end
     end
+
+    factory :not_commentable_post, parent: :post do
+      commentable { false }
+    end
   end
 end

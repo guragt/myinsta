@@ -96,7 +96,7 @@ RSpec.describe PostsController, type: :controller do
           expect(flash[:success]).to_not be_present
         end
 
-        it 'updates post description' do
+        it 'does not update post description' do
           expect(user.posts.first.description).to_not eq(post_valid_params[:description])
         end
       end

@@ -1,0 +1,3 @@
+<%= render 'refresh_form', id: @parent.parent_post.id, comment: nil, parent: @parent %>
+<%= render 'remove_highlighting' %>
+$("#comment-<%= @parent.id %>").addClass("highlighted");

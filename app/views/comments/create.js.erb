@@ -1,0 +1,8 @@
+<% if @comment.persisted? %>
+  $("#short-comments-<%= @comment.parent_type.downcase %>-<%= @comment.parent_id %>").html("<%= escape_javascript(render partial: 'short_comments_list', locals: { parent: @comment.parent }) %>");
+  <%= render 'refresh_comments', comment: @comment %>
+  <%= render 'remove_highlighting' %>
+  <%= render 'refresh_form', id: @comment.parent_post.id, comment: nil, parent: @comment.parent_post %>
+<% else %>
+  <%= render 'refresh_form', id: @comment.parent_post.id, comment: @comment, parent: @comment.parent %>
+<% end %>

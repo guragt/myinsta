@@ -1,0 +1,3 @@
+<%= render 'refresh_comments', comment: @comment %>
+<%= render 'remove_highlighting' %>
+<%= render 'refresh_form', id: @comment.parent_post.id, comment: nil, parent: @comment.parent_post %>

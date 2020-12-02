@@ -1,0 +1,1 @@
+$("#new-comment-form-<%= id %>").html("<%= escape_javascript(render partial: 'comment_form', locals: { comment: comment, parent: parent }) %>");

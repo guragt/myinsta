@@ -9,6 +9,12 @@ Rails.application.routes.draw do
   end
 
   resources :posts, only: %i[show create edit update destroy]
-  resources :relationships, only: %i[create update destroy]
-  resources :likes, only: %i[create destroy]
+  resources :relationships, only: %i[create update destroy], defaults: { format: :js }
+  resources :likes, only: %i[create destroy], defaults: { format: :js }
+
+  resources :comments, only: %i[create destroy], defaults: { format: :js } do
+    member do
+      get :reply
+    end
+  end
 end

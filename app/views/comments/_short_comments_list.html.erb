@@ -1,0 +1,15 @@
+<% if parent.comments.any? %>
+  <% if comments_count_for(parent) > 2 %>
+    <%= link_to t('.all_comments', count: comments_count_for(parent)), post_path(parent), class: 'view-all' %>
+  <% end %>
+  <% parent.comments.last(2).each do |comment| %>
+    <li>
+      <div class="post-comment">
+        <div class="comment-body" id="comment-<%= comment.id %>">
+          <%= link_to "#{comment.user.nickname}", user_path(comment.user), class: 'post-nick' %>
+          <%= comment.body %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+<% end %>

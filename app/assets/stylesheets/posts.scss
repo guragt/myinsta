@@ -1,7 +1,8 @@
 .post {
   max-width: 616px;
+  min-width: 616px;
   border: 1px solid #e7e7e7 ;
-  border-radius: 3px;
+  border-radius: 4px;
   margin: 40px auto;
   background-color: #f8f8f8;
 }
@@ -18,12 +19,9 @@
 
 .post-created {
   font-size: 12px;
-  margin: 8px 12px;
+  margin: 8px 15px;
   color: #777;
-}
-
-.post-comment {
-  margin: 3px 12px 8px;
+  padding-left: 3px;
 }
 
 .post-dropdown {
@@ -50,18 +48,27 @@
 }
 
 .post-like {
-  margin: 8px 12px 0;
+  margin: 8px 15px 0;
   display: inline-block;
 }
 
-.post-like div {
+.comment-like {
+  display: inline-block;
+  padding-left: 3px;
+}
+
+.post-like div, .comment-like div {
   display: inline-block;
 }
 
-.post-like-count {
+.post-like .like-count {
   position: relative;
   bottom: 3px;
   left: 3px;
+}
+
+.comment-like .like-count {
+  font-size: 12px;
 }
 
 .like-button {
@@ -69,7 +76,14 @@
   outline: none;
   border: none;
   padding: 0;
+}
+
+.post-like .like-button {
   font-size: 20px;
+}
+
+.comment-like .like-button {
+  font-size: 12px;
 }
 
 .liked, .liked:hover {
@@ -83,4 +97,67 @@
   color: #777;
   font-size: 20px;
   padding: 11px;
+}
+
+/* comment */
+
+.post-comment {
+  line-height: 120%;
+  margin: 2px 15px 6px;
+}
+
+.comment-body {
+  width: fit-content;
+  border-radius: 4px;
+  padding: 3px 3px 0;
+}
+
+.new-comment-form {
+  position: relative;
+  margin: 15px;
+  width: 85%;
+}
+
+.new-comment-form textarea {
+  resize: none;
+}
+
+.nested-comments {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nested-comments ul {
+  list-style: none;
+  margin-left: 20px;
+  padding: 0;
+}
+
+.comment-submit {
+  position: absolute;
+  width: 60px;  
+  top: 10px;
+  left: 530px;
+}
+
+.comment-link:link,
+.comment-link:hover,
+.comment-link:visited {
+  color: #777;
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.highlighted {
+  background-color: rgb(220, 220, 220);
+}
+
+.view-all,
+.view-all:link,
+.view-all:hover {
+  margin: 2px 15px 6px;
+  padding-left: 3px;
+  color: #777;
+  text-decoration: none;
 }
