@@ -13,7 +13,7 @@ RSpec.describe Comment, type: :model do
     it { is_expected.to validate_length_of(:body).is_at_most(1000) }
   end
 
-  describe 'Parent post' do
+  describe '#parent_post' do
     let!(:post) { create(:post, :with_comments) }
     let!(:comment) { post.comments.first }
 
