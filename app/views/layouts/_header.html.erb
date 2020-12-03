@@ -5,6 +5,16 @@
       <ul class="nav navbar-nav navbar-right">
         <% if signed_in? %>
           <li>
+            <div class="search-form">
+              <%= form_tag search_path, method: :get do %>
+                <%= text_field_tag :q, nil, placeholder: "Search" %>
+                <%= button_tag(type: "submit") do %>
+                  <i class="glyphicon glyphicon-search"></i>
+                <% end %>
+              <% end %>
+            </div>
+          </li>
+          <li>
             <button class="header-button" data-toggle="modal" data-target="#new-modal">
               <i class="glyphicon glyphicon-plus"></i>
             </button>

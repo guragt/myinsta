@@ -202,6 +202,31 @@ input {
   margin-bottom: 30px;
 }
 
+.search-form form {
+  padding: 9px 0;
+  margin-right: 15px;
+  display: inline-flex;
+}
+
+.search-form input {
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  padding: 5px;
+  outline: none;
+}
+
+.search-form button {
+  border: 1px solid #ccc;
+  border-radius: 0 4px 4px 0;
+  font-size: 20px;
+  color: #777;
+  outline: none;
+}
+
+.search-form button:hover {
+  color: #333;
+}
+
 /* flash */
 
 .alert-error {

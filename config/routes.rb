@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/search', to: "users#search"
+
   resources :posts, only: %i[show create edit update destroy]
   resources :relationships, only: %i[create update destroy], defaults: { format: :js }
   resources :likes, only: %i[create destroy], defaults: { format: :js }
