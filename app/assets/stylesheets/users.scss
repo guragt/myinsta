@@ -103,7 +103,7 @@
   color: white;
 }
 
-.gallery-item-likes {
+.gallery-item-count {
   margin-right: 2.2rem;
 }
 
@@ -116,15 +116,27 @@
   display: block;
 }
 
-.follow-list {
+.user-list {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-.follow-item {
+.user-item {
   background-color: #f8f8f8;
   border: 1px solid white;
+  position: relative;
+}
+
+.nick-absolute {
+  position: absolute;
+  top: 10px;
+}
+
+.name-absolute {
+  position: absolute;
+  top: 28px;
+  color: #777;
 }
 
 .nav-relation {
@@ -137,10 +149,6 @@
 
 .follow-message {
   margin: 20px 13px;
-}
-
-.follow-item {
-  background-color: #f8f8f8;
 }
 
 .medium-info {
@@ -170,9 +178,3 @@
   display: inline;
   margin: 15px;
 }
-
-
-
-
-
-

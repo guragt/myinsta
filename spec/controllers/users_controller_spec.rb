@@ -6,6 +6,14 @@ RSpec.describe UsersController, type: :controller do
   context 'authorized user' do
     before { sign_in user }
 
+    describe 'GET#index' do
+      it 'renders index template' do
+        get :index
+        expect(response).to have_http_status(:success)
+        expect(response).to render_template('index')
+      end
+    end
+
     describe 'GET#show' do
       it 'renders show template' do
         get :show, params: { id: user.id }
@@ -32,6 +40,14 @@ RSpec.describe UsersController, type: :controller do
   end
 
   context 'unauthorized user' do
+    describe 'GET#index' do
+      it 'does not render index template' do
+        get :index
+        expect(response).to redirect_to(new_user_session_path)
+        expect(response).to_not render_template('index')
+      end
+    end
+
     describe 'GET#show' do
       it 'does not render show template' do
         get :show, params: { id: user.id }

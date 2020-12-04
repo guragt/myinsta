@@ -73,6 +73,8 @@ en:
         sign_up: "Sign up"
         forgot_pass: "Forgot your password"
   users:
+    index:
+      title: "Search results for \"%{search}\""
     followers:
       title: "Followers"
       delete: "Delete"
