@@ -14,6 +14,7 @@ gem 'mysql2', '>= 0.4.4'
 gem 'paranoia'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
+gem 'ransack'
 gem 'rubocop-rails', require: false
 gem 'sass-rails', '>= 6'
 gem 'simple_form'

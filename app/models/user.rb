@@ -40,10 +40,4 @@ class User < ApplicationRecord
     Post.where("user_id IN (#{following_ids})
                 OR user_id = :user_id", user_id: id).order(created_at: :desc)
   end
-
-  def self.search(params)
-    users = User.where("name LIKE :q OR nickname LIKE :q",
-                       q: "%#{params[:q]}%") if params [:q].present?
-    users
-  end
 end
