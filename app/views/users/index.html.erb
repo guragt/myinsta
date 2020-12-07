@@ -5,6 +5,11 @@
       <% @users.each do |user| %>
         <li class="user-item">
           <%= render 'avatar_nick_name', user: user %>
+          <% unless current_user == user %>
+            <div id="follow-form-<%= user.id %>" class="nav-relation follow-button">
+              <%= render 'follow_form', user: user %>
+            </div>
+          <% end %>
         </li>
       <% end %>
     </ul>

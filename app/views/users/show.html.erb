@@ -8,8 +8,8 @@
     <% if @user == current_user %>
       <%= link_to t('.edit_profile'), edit_user_registration_path, class: "btn btn-primary" %>
     <% else %>
-      <div id='follow-form'>
-        <%= render 'follow_form' %>
+      <div id='follow-form-<%= @user.id %>' class='follow-form'>
+        <%= render 'follow_form', user: @user %>
       </div>
     <% end %>
   </div>
