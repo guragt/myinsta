@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :obtain_active_relationships, only: %i[index show]
 
   def index
-    @users = @q.result
+    @users = @q.result.page(params[:page])
   end
 
   def show
@@ -12,11 +12,11 @@ class UsersController < ApplicationController
   end
 
   def following
-    @users = @user.following
+    @relationships = @user.active_relationships.active.page(params[:page])
   end
 
   def followers
-    @users = @user.followers
+    @relationships = @user.passive_relationships.active.page(params[:page])
   end
 
   private
