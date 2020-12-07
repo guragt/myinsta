@@ -2,9 +2,21 @@ require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
   let!(:user) { create(:user) }
+  let!(:second_user) { create(:user, name: 'Johnny Dep', nickname: 'some_nick') }
+  let!(:third_user) { create(:user, name: 'Some Name', nickname: '<<jonathan>>') }
+  let!(:fourth_user) { create(:user, name: 'Default Name', nickname: 'default_nick') }
 
   context 'authorized user' do
     before { sign_in user }
+
+    describe 'GET#index' do
+      it 'renders index template' do
+        get :index, params: { q: { name_or_nickname_cont: 'JO' } }
+        expect(assigns(:users)).to include(second_user)
+        expect(assigns(:users)).to include(third_user)
+        expect(assigns(:users)).not_to include(fourth_user)
+      end
+    end
 
     describe 'GET#show' do
       it 'renders show template' do
@@ -32,6 +44,14 @@ RSpec.describe UsersController, type: :controller do
   end
 
   context 'unauthorized user' do
+    describe 'GET#index' do
+      it 'does not render index template' do
+        get :index
+        expect(response).to redirect_to(new_user_session_path)
+        expect(response).to_not render_template('index')
+      end
+    end
+
     describe 'GET#show' do
       it 'does not render show template' do
         get :show, params: { id: user.id }

@@ -73,6 +73,8 @@ en:
         sign_up: "Sign up"
         forgot_pass: "Forgot your password"
   users:
+    index:
+      title: "Search results for \"%{search}\""
     followers:
       title: "Followers"
       delete: "Delete"
@@ -139,6 +141,7 @@ en:
       log_in: "Log in"
       log_out: "Log out"
       no_notification: "You don't have any notifications"
+      search: "Search"
     notification:
       wants_to_follow: "wants to follow you"
     relation_button:

@@ -6,9 +6,13 @@
         <%= link_to post do %>
           <div class="gallery-item-info">
             <ul>
-              <li class="gallery-item-likes">
+              <li class="gallery-item-count">
                 <i class="glyphicon glyphicon-heart"></i>
                 <%= post.likes.count %>
+              </li>
+              <li class="gallery-item-count">
+                <i class="glyphicon glyphicon-comment"></i>
+                <%= comments_count_for(post) %>
               </li>
             </ul>
           </div>

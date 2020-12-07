@@ -46,4 +46,5 @@ RSpec.describe ApplicationHelper, type: :helper do
     it 'should return comments count' do
       expect(comments_count_for(post)).to eq(post.comments.count)
     end
+  end
 end
