@@ -26,6 +26,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  acts_as_paranoid
+
   mount_uploader :avatar, AvatarUploader
 
   def following_status_for(other_user)
