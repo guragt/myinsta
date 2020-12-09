@@ -16,4 +16,10 @@ module ApplicationHelper
   def comments_count_for(parent)
     parent.comments.count
   end
+
+  def show_gallery_of?(user)
+    current_user == user ||
+      !user.private ||
+      current_user.following_status_for(user) == 'active'
+  end
 end

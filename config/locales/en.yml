@@ -86,6 +86,8 @@ en:
       posts: "posts"
       followers: "followers"
       following: "following"
+      no_posts: "No posts yet"
+      private_account: "This account is private"
     profile_info:
       followers: "followers"
       following: "following"

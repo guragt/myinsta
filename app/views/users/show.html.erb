@@ -35,6 +35,12 @@
 	<div class="profile-real-name"><%= @user.name %></div>
 </div>
 
-<% if @posts.any? %>
-  <%= render 'gallery' %>
+<% if show_gallery_of?(@user) %>
+  <% if @posts.any? %>
+    <%= render 'gallery' %>
+  <% else %>
+    <h2><%= t('.no_posts') %></h2>  
+  <% end %>
+<% else %>
+  <h2><%= t('.private_account') %></h2>
 <% end %>
