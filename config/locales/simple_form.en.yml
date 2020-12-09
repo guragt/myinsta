@@ -15,6 +15,7 @@ en:
         name: "Name"
         nickname: "Nickname"
         email: "Email"
+        private: "Private account"
         avatar: "Avatar"
         current_password: "Current password"
         password: "Password"

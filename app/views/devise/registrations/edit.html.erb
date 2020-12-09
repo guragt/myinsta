@@ -14,6 +14,7 @@
           <%= f.input :name %>
           <%= f.input :nickname %>
           <%= f.input :email, required: true %>
+          <%= f.input :private, as: :boolean %>
           <%= f.input :password,
                       hint: t('.leave_blank') %>           
           <%= f.input :password_confirmation %>
