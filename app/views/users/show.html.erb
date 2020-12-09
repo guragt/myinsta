@@ -35,7 +35,7 @@
 	<div class="profile-real-name"><%= @user.name %></div>
 </div>
 
-<% if show_gallery_of?(@user) %>
+<% if @user.show_gallery_for?(current_user) %>
   <% if @posts.any? %>
     <%= render 'gallery' %>
   <% else %>
