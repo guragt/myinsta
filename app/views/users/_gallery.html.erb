@@ -1,23 +1,27 @@
-<div class="content">
-  <div class="gallery">
-    <% @posts.each do |post| %>
-      <div class="gallery-item">
-        <%= image_tag post.image.small_thumb.url, class: "gallery-image" %>
-        <%= link_to post do %>
-          <div class="gallery-item-info">
-            <ul>
-              <li class="gallery-item-count">
-                <i class="glyphicon glyphicon-heart"></i>
-                <%= post.likes.count %>
-              </li>
-              <li class="gallery-item-count">
-                <i class="glyphicon glyphicon-comment"></i>
-                <%= comments_count_for(post) %>
-              </li>
-            </ul>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
+<% if @posts.any? %>
+  <div class="content">
+    <div class="gallery">
+      <% @posts.each do |post| %>
+        <div class="gallery-item">
+          <%= image_tag post.image.small_thumb.url, class: "gallery-image" %>
+          <%= link_to post do %>
+            <div class="gallery-item-info">
+              <ul>
+                <li class="gallery-item-count">
+                  <i class="glyphicon glyphicon-heart"></i>
+                  <%= post.likes.count %>
+                </li>
+                <li class="gallery-item-count">
+                  <i class="glyphicon glyphicon-comment"></i>
+                  <%= comments_count_for(post) %>
+                </li>
+              </ul>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
+<% else %>
+  <h2><%= t('.no_posts') %></h2>  
+<% end %>

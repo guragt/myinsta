@@ -86,7 +86,9 @@ en:
       posts: "posts"
       followers: "followers"
       following: "following"
-    profile_info:
+      no_posts: "No posts yet"
+      private_account: "This account is private"
+    small_info:
       followers: "followers"
       following: "following"
     follow:
@@ -99,6 +101,8 @@ en:
       deleted: "Deleted"
     unfollow_message:
       unfollowed: "Unfollowed"
+    gallery:
+      no_posts: "No posts yet"
   posts:
     new_modal:
       title: "Create new post"

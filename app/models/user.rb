@@ -42,4 +42,12 @@ class User < ApplicationRecord
     Post.where("user_id IN (#{following_ids})
                 OR user_id = :user_id", user_id: id).order(created_at: :desc)
   end
+
+  def public?
+    !private?
+  end
+
+  def show_gallery_for?(user)
+    user.public? || following_status_for(user) == 'active'
+  end
 end
