@@ -1,46 +1,7 @@
-<div class="profile">
-	<div class="profile-image">
-  	<%= image_tag @user.avatar.thumb.url %>
-  </div>
+<%= render 'main_info', user: @user %>
 
-	<div class="profile-user-settings">
-    <h1 class="profile-nick-name"><%= @user.nickname %></h1>
-    <% if @user == current_user %>
-      <%= link_to t('.edit_profile'), edit_user_registration_path, class: "btn btn-primary" %>
-    <% else %>
-      <div id='follow-form-<%= @user.id %>' class='follow-form'>
-        <%= render 'follow_form', user: @user %>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="profile-stats">
-		<ul>
-			<li>
-        <span class="profile-stat-count"><%= @user.posts.count %></span> <%= t('.posts') %>
-      </li>
-      <li>
-        <%= link_to followers_user_path(@user), class: "profile-stat-link" do %>
-          <span class='profile-stat-count'><%= @user.passive_relationships.active.count %></span> <%= t('.followers') %>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to following_user_path(@user), class: "profile-stat-link" do %>
-          <span class="profile-stat-count"><%= @user.active_relationships.active.count %></span> <%= t('.following') %>
-        <% end %>
-      </li>
-		</ul>
-	</div>
-
-	<div class="profile-real-name"><%= @user.name %></div>
-</div>
-
-<% if @user.show_gallery_for?(current_user) %>
-  <% if @posts.any? %>
-    <%= render 'gallery' %>
-  <% else %>
-    <h2><%= t('.no_posts') %></h2>  
-  <% end %>
+<% if current_user.show_gallery_for?(@user) %>
+  <%= render 'gallery' %>
 <% else %>
   <h2><%= t('.private_account') %></h2>
 <% end %>

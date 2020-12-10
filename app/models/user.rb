@@ -48,6 +48,6 @@ class User < ApplicationRecord
   end
 
   def show_gallery_for?(user)
-    public? || user == self || user.following_status_for(self) == 'active'
+    user.public? || following_status_for(user) == 'active'
   end
 end

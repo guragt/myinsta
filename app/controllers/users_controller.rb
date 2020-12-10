@@ -8,7 +8,12 @@ class UsersController < ApplicationController
   end
 
   def show
+    redirect_to current_users_path if @user == current_user
     @posts = @user.posts.order(created_at: :desc)
+  end
+
+  def current
+    @posts = current_user.posts.order(created_at: :desc)
   end
 
   def following

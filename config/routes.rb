@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: %i[index show] do
+    get :current, on: :collection
     member do
       get :following, :followers
     end
