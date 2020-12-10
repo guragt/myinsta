@@ -18,11 +18,12 @@ RSpec.describe RelationshipsController, type: :controller do
 
     describe 'PUT#update' do
       before do
-        put :update, xhr: true, params: { id: user.active_relationships.first }
+        put :update, xhr: true, params: { id: user.active_relationships.first,
+                                          relationship: { status: 'declined' } }
       end
 
       it 'updates realtionship status' do
-        expect(user.active_relationships.first.status).to eq('active')
+        expect(user.active_relationships.first.status).to eq('declined')
       end
     end
 
@@ -47,11 +48,12 @@ RSpec.describe RelationshipsController, type: :controller do
 
     describe 'PUT#update' do
       before do
-        put :update, xhr: true, params: { id: user.active_relationships.first }
+        put :update, xhr: true, params: { id: user.active_relationships.first,
+                                          relationship: { status: 'declined' } }
       end
 
       it 'does not update realtionship status' do
-        expect(user.active_relationships.first.status).to_not eq('active')
+        expect(user.active_relationships.first.status).to_not eq('declined')
       end
     end
 

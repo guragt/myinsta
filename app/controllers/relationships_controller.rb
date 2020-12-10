@@ -6,11 +6,12 @@ class RelationshipsController < ApplicationController
   def create
     relationship = @active_relationships.build(relationship_params)
     @user = relationship.followed
+    relationship.active! if @user.public?
     relationship.save
   end
 
   def update
-    @relationship.active!
+    @relationship.update(relationship_params)
   end
 
   def destroy
@@ -21,7 +22,7 @@ class RelationshipsController < ApplicationController
   private
 
   def relationship_params
-    params.require(:relationship).permit(:followed_id)
+    params.require(:relationship).permit(:followed_id, :status)
   end
 
   def obtain_relationship

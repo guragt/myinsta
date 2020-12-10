@@ -150,9 +150,9 @@ en:
       wants_to_follow: "wants to follow you"
     relation_button:
       confirm: "Confirm"
-      delete: "Delete"
+      decline: "Decline"
     confirm_message:
       confirmed: "Confirmed"
-    delete_message:
-      deleted: "Deleted"
+    decline_message:
+      declined: "Declined"
 
