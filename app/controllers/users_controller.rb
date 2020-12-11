@@ -16,6 +16,10 @@ class UsersController < ApplicationController
     @posts = current_user.posts.order(created_at: :desc)
   end
 
+  def declined
+    @relationships = current_user.passive_relationships.declined.page(params[:page])
+  end
+
   def following
     @relationships = @user.active_relationships.active.page(params[:page])
   end

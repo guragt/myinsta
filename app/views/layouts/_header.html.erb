@@ -45,6 +45,7 @@
             <ul class="dropdown-menu">
               <li><%= link_to t('.profile'), current_users_path %></li>
               <li><%= link_to t('.settings'), edit_user_registration_path %></li>
+              <li><%= link_to t('.block_list'), declined_users_path %></li>
               <li class="divider"></li>
               <li>
                 <%= link_to t('.log_out'), destroy_user_session_path, method: :delete %>

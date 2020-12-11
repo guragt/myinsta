@@ -44,6 +44,14 @@ RSpec.describe UsersController, type: :controller do
       end
     end
 
+    describe 'GET#declined' do
+      it 'renders declined template' do
+        get :declined
+        expect(response).to have_http_status(:success)
+        expect(response).to render_template('declined')
+      end
+    end
+
     describe 'GET#followers' do
       it 'renders followers template' do
         get :followers, params: { id: user.id }
@@ -83,6 +91,14 @@ RSpec.describe UsersController, type: :controller do
         get :current
         expect(response).to redirect_to(new_user_session_path)
         expect(response).to_not render_template('current')
+      end
+    end
+
+    describe 'GET#declined' do
+      it 'does not render declined template' do
+        get :declined
+        expect(response).to redirect_to(new_user_session_path)
+        expect(response).to_not render_template('declined')
       end
     end
 

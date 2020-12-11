@@ -7,6 +7,22 @@ module ApplicationHelper
     end
   end
 
+  def relationship_update_partial_name(relationship)
+    case relationship.status
+    when 'active' then 'confirm_message'
+    when 'declined' then 'decline_message'
+    end
+  end
+
+  def relationship_delete_partial_name(relationship)
+    return 'unfollow_message' if relationship.follower == current_user
+
+    case relationship.status
+    when 'active' then 'delete_message'
+    when 'declined' then 'unlock_message'
+    end
+  end
+
   def likes_count_block(likes_count)
     return if likes_count.zero?
 

@@ -1,1 +1,3 @@
-<%= render "users/#{following_status_partial_name(current_user, user)}", user: user %>
+<% unless current_user.following_status_for(user) == 'declined' %>
+  <%= render "users/#{following_status_partial_name(current_user, user)}", user: user %>
+<% end %>
