@@ -37,6 +37,32 @@ RSpec.describe ApplicationHelper, type: :helper do
     end
   end
 
+  describe '#relationship_delete_partial_name' do
+    let!(:follower) { create(:user) }
+    let!(:followed) { create(:user) }
+
+    it 'should return unfollow_message' do
+      helper.stub(:current_user) { follower }
+      relation = follower.active_relationships.create(followed_id: followed.id,
+                                                      status: 'active')
+      expect(helper.relationship_delete_partial_name(relation)).to eq('unfollow_message')
+    end
+
+    it 'should return delete_message' do
+      helper.stub(:current_user) { followed }
+      relation = followed.passive_relationships.create(follower_id: follower.id,
+                                                       status: 'active')
+      expect(helper.relationship_delete_partial_name(relation)).to eq('delete_message')
+    end
+
+    it 'should return decline_message' do
+      helper.stub(:current_user) { followed }
+      relation = followed.passive_relationships.create(follower_id: follower.id,
+                                                       status: 'declined')
+      expect(helper.relationship_delete_partial_name(relation)).to eq('unlock_message')
+    end
+  end
+
   describe '#likes_count_block' do
     let!(:count_zero) { 0 }
     let!(:count_one) { 1 }

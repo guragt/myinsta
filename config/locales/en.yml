@@ -89,7 +89,7 @@ en:
       no_posts: "No posts yet"
       private_account: "This account is private"
     declined:
-      title: "Black list"
+      title: "Block list"
       unlock: "Unlock"
     small_info:
       followers: "followers"
@@ -147,7 +147,7 @@ en:
     header:
       profile: "Profile"
       settings: "Settings"
-      black_list: "Black list"
+      block_list: "Block list"
       log_in: "Log in"
       log_out: "Log out"
       no_notification: "You don't have any notifications"
