@@ -88,6 +88,9 @@ en:
       following: "following"
       no_posts: "No posts yet"
       private_account: "This account is private"
+    declined:
+      title: "Black list"
+      unlock: "Unlock"
     small_info:
       followers: "followers"
       following: "following"
@@ -101,6 +104,8 @@ en:
       deleted: "Deleted"
     unfollow_message:
       unfollowed: "Unfollowed"
+    unlock_message:
+      unlocked: "Unlocked"
     gallery:
       no_posts: "No posts yet"
   posts:
@@ -142,6 +147,7 @@ en:
     header:
       profile: "Profile"
       settings: "Settings"
+      black_list: "Black list"
       log_in: "Log in"
       log_out: "Log out"
       no_notification: "You don't have any notifications"

@@ -1,5 +1,1 @@
-<% if @relationship.status == 'active' %>
-  $("#relation-<%= @relationship.id %>").html("<%= escape_javascript(render('layouts/confirm_message')) %>");
-<% else %>
-  $("#relation-<%= @relationship.id %>").html("<%= escape_javascript(render('layouts/decline_message')) %>");
-<% end %>
+$("#relation-<%= @relationship.id %>").html("<%= escape_javascript(render("layouts/#{relationship_update_partial_name(@relationship)}")) %>");

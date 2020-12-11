@@ -1,3 +1,2 @@
 <%= render 'refresh_follow_form', user: @user %>
-$("#pas-relation-<%= @relationship.id %>").html("<%= escape_javascript(render('users/delete_message')) %>");
-$("#act-relation-<%= @relationship.id %>").html("<%= escape_javascript(render('users/unfollow_message')) %>");
+$("#relation-<%= @relationship.id %>").html("<%= escape_javascript(render("users/#{relationship_delete_partial_name(@relationship)}")) %>");
