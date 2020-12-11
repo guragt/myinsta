@@ -1,1 +1,6 @@
 $("#relation-<%= @relationship.id %>").html("<%= escape_javascript(render("layouts/#{relationship_update_partial_name(@relationship)}")) %>");
+<% if current_user.passive_relationships.pending.any? %>
+  $("#notification-count").html("<%= current_user.passive_relationships.pending.count %>");
+<% else %>
+  $("#notification-count").remove();
+<% end %>

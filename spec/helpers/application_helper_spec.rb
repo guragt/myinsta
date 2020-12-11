@@ -20,6 +20,23 @@ RSpec.describe ApplicationHelper, type: :helper do
     end
   end
 
+  describe '#relationship_update_partial_name' do
+    let!(:follower) { create(:user) }
+    let!(:followed) { create(:user) }
+
+    it 'should return confirm_message' do
+      relation = follower.active_relationships.create(followed_id: followed.id,
+                                                      status: 'active')
+      expect(relationship_update_partial_name(relation)).to eq('confirm_message')
+    end
+
+    it 'should return decline_message' do
+      relation = follower.active_relationships.create(followed_id: followed.id,
+                                                      status: 'declined')
+      expect(relationship_update_partial_name(relation)).to eq('decline_message')
+    end
+  end
+
   describe '#likes_count_block' do
     let!(:count_zero) { 0 }
     let!(:count_one) { 1 }
