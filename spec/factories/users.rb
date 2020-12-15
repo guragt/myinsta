@@ -5,6 +5,10 @@ FactoryBot.define do
     email { Faker::Internet.unique.safe_email }
     password { Faker::Internet.password }
 
+    factory :admin do
+      admin { true }
+    end
+
     trait :with_posts do
       after(:create) do |user|
         create_list(:post, 5, user: user)

@@ -159,6 +159,7 @@ en:
       public: "Public"
       deleted: "Deleted"
       active: "Active"
+      not_authorized: "You are not authorized to perform this action"
   layouts:
     header:
       profile: "Profile"

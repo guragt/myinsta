@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   scope :non_admins, -> { where(admin: false) }
-  
+
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
