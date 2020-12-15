@@ -143,6 +143,22 @@ en:
       sure: "Are you sure?"
     short_comments_list:
       all_comments: "View all %{count} comments"
+  admin_dashboards:
+    index:
+      nickname: "Nickname"
+      name: "Name"
+      email: "Email"
+      account: "Account"
+      status: "Status"
+      registration: "Registration date"
+      posts_count: "Number of posts"
+      comments_count: "Number of comments"
+      likes_count: "Number of likes"
+      title: "Registered users"
+      private: "Private"
+      public: "Public"
+      deleted: "Deleted"
+      active: "Active"
   layouts:
     header:
       profile: "Profile"

@@ -21,4 +21,6 @@ Rails.application.routes.draw do
       get :reply
     end
   end
+
+  get '/dashboard', to: 'admin_dashboards#index'
 end

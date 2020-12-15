@@ -17,4 +17,12 @@ class ApplicationController < ActionController::Base
   def after_sign_up_path_for(_resource)
     root_path
   end
+
+  def after_sign_in_path_for(_resource)
+    if current_user.admin
+      dashboard_path
+    else
+      root_path
+    end
+  end
 end

@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2><%= t('.title') %></h2>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th><%= t('.nickname') %></th>
+          <th><%= t('.name') %></th>
+          <th><%= t('.email') %></th>
+          <th><%= t('.posts_count') %></th>
+          <th><%= t('.comments_count') %></th>
+          <th><%= t('.likes_count') %></th>
+          <th><%= t('.account') %></th>
+          <th><%= t('.status') %></th>
+          <th><%= t('.registration') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.nickname %></td>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.posts.count %></td>
+            <td><%= user.comments.count %></td>
+            <td><%= user.likes.count %></td>
+            <td><%= user.private? ? t('.private') : t('.public') %></td>
+            <td><%= user.deleted_at? ? t('.deleted') : t('.active') %></td>
+            <td><%= user.created_at.strftime("%d/%m/%Y %T") %> </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="text-center">
+      <%= paginate @users %>
+    </div>
+  </div>
+</div>
