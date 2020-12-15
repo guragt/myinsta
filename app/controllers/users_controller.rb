@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :obtain_active_relationships, only: %i[index show]
 
   def index
-    @users = @q.result.non_admins.page(params[:page])
+    @users = @q.result.page(params[:page])
   end
 
   def show

@@ -4,6 +4,7 @@
     <table class="table table-striped table-bordered">
       <thead>
         <tr>
+          <th><%= t('.avatar') %></th>
           <th><%= t('.nickname') %></th>
           <th><%= t('.name') %></th>
           <th><%= t('.email') %></th>
@@ -18,6 +19,7 @@
       <tbody>
         <% @users.each do |user| %>
           <tr>
+            <td class="text-center"><%= image_tag(user.avatar.small_thumb.url) %></td>
             <td><%= user.nickname %></td>
             <td><%= user.name %></td>
             <td><%= user.email %></td>

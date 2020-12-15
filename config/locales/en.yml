@@ -145,6 +145,7 @@ en:
       all_comments: "View all %{count} comments"
   admin_dashboards:
     index:
+      avatar: "Avatar"
       nickname: "Nickname"
       name: "Name"
       email: "Email"
