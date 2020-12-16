@@ -32,7 +32,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe 'Following status' do
+  describe '#following_status' do
     let!(:user) { create(:user) }
     let!(:other_user) { create(:user) }
 
@@ -48,6 +48,39 @@ RSpec.describe User, type: :model do
     it 'should retun status active' do
       user.active_relationships.create(followed_id: other_user.id, status: 'active')
       expect(user.following_status_for(other_user)).to eq('active')
+    end
+  end
+
+  describe '#show_content_for?' do
+    let!(:user) { create(:user) }
+    let!(:public_user) { create(:user) }
+    let!(:private_user) { create(:private_user) }
+
+    it 'should return false' do
+      expect(user.show_content_for?(private_user)).to be false
+    end
+
+    it 'should return true' do
+      user.active_relationships.create(followed_id: private_user.id, status: 'active')
+      expect(user.show_content_for?(private_user)).to be true
+      expect(user.show_content_for?(public_user)).to be true
+    end
+  end
+
+  describe '#show_post_for?' do
+    let!(:user) { create(:user) }
+    let!(:public_user) { create(:user) }
+    let!(:private_user) { create(:private_user) }
+
+    it 'should return false' do
+      expect(user.show_post_for?(private_user)).to be false
+    end
+
+    it 'should return true' do
+      user.active_relationships.create(followed_id: private_user.id, status: 'active')
+      expect(user.show_post_for?(private_user)).to be true
+      expect(user.show_post_for?(public_user)).to be true
+      expect(user.show_post_for?(user)).to be true
     end
   end
 end

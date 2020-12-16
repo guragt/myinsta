@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
   let!(:user) { create(:user, :with_posts) }
+  let!(:private_user) { create(:private_user, :with_posts) }
   let!(:other_post) { create(:post) }
   let!(:post_valid_params) { attributes_for(:post) }
   let!(:post_invalid_params) { { description: 'a' * 2001, image: '' } }
@@ -18,10 +19,37 @@ RSpec.describe PostsController, type: :controller do
     end
 
     describe 'GET#show' do
-      it 'renders show template' do
-        get :show, params: { id: user.posts.first }
-        expect(response).to have_http_status(:success)
-        expect(response).to render_template('show')
+      context 'user visits his own post' do
+        it 'renders show template' do
+          get :show, params: { id: user.posts.first }
+          expect(response).to have_http_status(:success)
+          expect(response).to render_template('show')
+        end
+      end
+
+      context 'user visits post of public user' do
+        it 'renders show template' do
+          get :show, params: { id: other_post }
+          expect(response).to have_http_status(:success)
+          expect(response).to render_template('show')
+        end
+      end
+
+      context 'user visits post of private user' do
+        it 'does not render show template' do
+          get :show, params: { id: private_user.posts.first }
+          expect(response).to redirect_to(private_user)
+          expect(response).not_to render_template('show')
+        end
+      end
+
+      context 'user visits post of following private user' do
+        it 'renders show template' do
+          user.active_relationships.create(followed_id: private_user.id, status: 'active')
+          get :show, params: { id: private_user.posts.first }
+          expect(response).to have_http_status(:success)
+          expect(response).to render_template('show')
+        end
       end
     end
 
