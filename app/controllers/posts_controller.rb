@@ -9,7 +9,10 @@ class PostsController < ApplicationController
     @posts = current_user.feed
   end
 
-  def show; end
+  def show
+    user = @post.user
+    redirect_to user unless current_user.show_post_for?(user)
+  end
 
   def create
     @new_post = current_user.posts.build(post_params)
