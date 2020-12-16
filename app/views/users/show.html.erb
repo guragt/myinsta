@@ -1,6 +1,6 @@
 <%= render 'main_info', user: @user %>
 
-<% if current_user.show_gallery_for?(@user) %>
+<% if current_user.show_content_for?(@user) %>
   <%= render 'gallery' %>
 <% else %>
   <h2><%= t('.private_account') %></h2>

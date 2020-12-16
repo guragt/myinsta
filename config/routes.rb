@@ -21,4 +21,8 @@ Rails.application.routes.draw do
       get :reply
     end
   end
+
+  namespace :admin do
+    resources :users, only: :index
+  end
 end

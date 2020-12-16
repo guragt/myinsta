@@ -14,7 +14,8 @@
 
 .profile-image img,
 .edit-profile-image img,
-.medium-info img {
+.medium-info img, 
+td img {
   border-radius: 50%;
 }
 
@@ -177,4 +178,16 @@
 .medium-info ul li {
   display: inline;
   margin: 15px;
+}
+
+/* table */
+
+
+.table > tbody > tr > td  {
+  vertical-align: middle;
+}
+
+th {
+  text-align: center;
+  vertical-align: middle !important;
 }

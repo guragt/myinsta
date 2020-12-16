@@ -19,6 +19,13 @@
               <i class="glyphicon glyphicon-plus"></i>
             </button>
           </li>
+          <% if current_user.admin? %>
+            <li>
+              <%= button_to admin_users_path, method: 'get', class: 'header-button' do %>
+                <i class="glyphicon glyphicon-list-alt"></i>
+              <% end %>
+            </li>
+          <% end %>
           <li class="dropdown">
             <button class="dropdown-toggle header-button" data-toggle="dropdown">
               <i class="glyphicon glyphicon-bell"></i>

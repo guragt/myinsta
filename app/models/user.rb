@@ -47,7 +47,11 @@ class User < ApplicationRecord
     !private?
   end
 
-  def show_gallery_for?(user)
+  def show_content_for?(user)
     user.public? || following_status_for(user) == 'active'
+  end
+
+  def show_post_for?(user)
+    self == user || show_content_for?(user)
   end
 end
