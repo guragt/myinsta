@@ -21,7 +21,7 @@
           </li>
           <% if current_user.admin? %>
             <li>
-              <%= button_to dashboard_path, method: 'get', class: 'header-button' do %>
+              <%= button_to admin_users_path, method: 'get', class: 'header-button' do %>
                 <i class="glyphicon glyphicon-list-alt"></i>
               <% end %>
             </li>

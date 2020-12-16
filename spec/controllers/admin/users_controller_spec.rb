@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe AdminDashboardsController, type: :controller do
+RSpec.describe Admin::UsersController, type: :controller do
   let!(:user) { create(:user) }
   let!(:admin) { create(:admin) }
 
@@ -13,7 +13,7 @@ RSpec.describe AdminDashboardsController, type: :controller do
         expect(response).to have_http_status(:success)
         expect(response).to render_template('index')
         expect(assigns(:users)).to include(user)
-        expect(assigns(:users)).not_to include(admin)
+        expect(assigns(:users)).to include(admin)
       end
     end
   end
@@ -24,9 +24,8 @@ RSpec.describe AdminDashboardsController, type: :controller do
     describe 'GET#index' do
       it 'does not render index template' do
         get :index
-        expect(response).to have_http_status(:redirect)
+        expect(response).to have_http_status(:forbidden)
         expect(response).not_to render_template('index')
-        expect(flash[:warning]).to be_present
       end
     end
   end
