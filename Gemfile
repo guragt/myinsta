@@ -13,7 +13,6 @@ gem 'fog-aws'
 gem 'jbuilder', '~> 2.7'
 gem 'kaminari'
 gem 'mini_magick'
-gem 'mysql2', '>= 0.4.4'
 gem 'paranoia'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
@@ -28,6 +27,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'faker',       git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
+  gem 'mysql2', '>= 0.4.4'
   gem 'rspec-rails', '~> 4.0'
 end
 
