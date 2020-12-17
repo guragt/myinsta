@@ -9,6 +9,7 @@ gem 'carrierwave', '~> 2.0'
 gem 'devise'
 gem 'figaro'
 gem 'file_validators'
+gem 'fog-aws'
 gem 'jbuilder', '~> 2.7'
 gem 'kaminari'
 gem 'mini_magick'
@@ -44,6 +45,10 @@ group :test do
   gem 'shoulda-matchers', '~> 4.0'
   gem 'simplecov', require: false
   gem 'webdrivers'
+end
+
+group :production do
+  gem 'pg', '1.2.3'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
