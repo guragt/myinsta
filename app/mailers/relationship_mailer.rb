@@ -8,6 +8,6 @@ class RelationshipMailer < ApplicationMailer
     @relationship = relationship
 
     mail(to: @relationship.followed.email,
-         subject: @relationship.status == 'active' ? t('.follower') : t('.request'))
+         subject: @relationship.active? ? t('.follower') : t('.request'))
   end
 end

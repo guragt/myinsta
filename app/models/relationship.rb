@@ -8,13 +8,11 @@ class Relationship < ApplicationRecord
   validates :followed_id, presence: true
   validates :status, presence: true
 
-  after_create :send_relationship_notification
+  after_create :send_relationship_notification, unless: -> { Rails.env.test? }
 
   private
 
   def send_relationship_notification
-    return if Rails.env.test?
-
     RelationshipMailer.new_follower(self).deliver_later
   end
 end

@@ -2,5 +2,5 @@
 
 <p>
   <%= link_to @relationship.follower.nickname, @relationship.follower %>
-  <%= @relationship.status == 'active' ? t('.follower_content') : t('.request_content') %>
+  <%= @relationship.active? ? t('.follower_content') : t('.request_content') %>
 </p>
