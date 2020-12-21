@@ -180,4 +180,13 @@ en:
       confirmed: "Confirmed"
     decline_message:
       declined: "Declined"
+  relationship_mailer:
+    new_follower:
+      subject: "New follower"
+      greeting: "Hello, %{name}!"
+      content: 'begins to follow you'
+    new_follow_request:
+      subject: "New follow request"
+      greeting: "Hello, %{name}!"
+      content: 'sends you a follow request'
 

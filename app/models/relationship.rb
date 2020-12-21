@@ -7,4 +7,16 @@ class Relationship < ApplicationRecord
   validates :follower_id, presence: true
   validates :followed_id, presence: true
   validates :status, presence: true
+
+  after_create :send_relationship_notification
+
+  private
+
+  def send_relationship_notification
+    if status == 'active'
+      RelationshipMailer.new_follower(self).deliver_later
+    elsif status == 'pending'
+      RelationshipMailer.new_follow_request(self).deliver_later
+    end
+  end
 end
