@@ -1,0 +1,4 @@
+<%= t('.greeting', name: @relationship.followed.name) %>
+
+<%= @relationship.follower.nickname %> <%= @relationship.active? ? t('.follower_content') : t('.request_content') %>
+   

@@ -20,7 +20,7 @@ en:
         current_password: "Current password"
         password: "Password"
         password_confirmation: "Password confirmation"
-        remember_me: "Remeber me"
+        remember_me: "Remember me"
         remove_avatar: "Remove avatar"
         description: "Description"
         commentable: "Allow comments for this post"
