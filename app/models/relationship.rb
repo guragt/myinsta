@@ -13,10 +13,8 @@ class Relationship < ApplicationRecord
   private
 
   def send_relationship_notification
-    if status == 'active'
-      RelationshipMailer.new_follower(self).deliver_later
-    elsif status == 'pending'
-      RelationshipMailer.new_follow_request(self).deliver_later
-    end
+    return if Rails.env.test?
+
+    RelationshipMailer.new_follower(self).deliver_later
   end
 end

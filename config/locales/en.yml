@@ -182,11 +182,10 @@ en:
       declined: "Declined"
   relationship_mailer:
     new_follower:
-      subject: "New follower"
+      follower: "New follower"
+      request: "New follow request"
       greeting: "Hello, %{name}!"
-      content: 'begins to follow you'
-    new_follow_request:
-      subject: "New follow request"
-      greeting: "Hello, %{name}!"
-      content: 'sends you a follow request'
+      follower_content: 'begins to follow you.'
+      request_content: 'sends you a follow request.'
+      
 
