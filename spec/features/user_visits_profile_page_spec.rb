@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'user visit profile page' do
+feature 'user visits profile page' do
   let!(:user) { create(:user) }
 
   before { login_as user }

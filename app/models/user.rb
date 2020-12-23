@@ -16,9 +16,12 @@ class User < ApplicationRecord
   validates :name, presence: true,
                    length: { maximum: 50 }
   validates :nickname, presence: true,
-                       uniqueness: { case_sensitive: true },
+                       uniqueness: { case_sensitive: true,
+                                     conditions: -> { with_deleted } },
                        length: { maximum: 30 },
                        format: { without: /\s/, message: "doesn't allow spaces" }
+  validates :email, uniqueness: { case_sensitive: false,
+                                  conditions: -> { with_deleted } }
   validates :avatar, file_size: { less_than: 1.megabytes }
 
   # Include default devise modules. Others available are:

@@ -29,6 +29,7 @@ RSpec.describe User, type: :model do
 
     context 'uniqueness validation' do
       it { is_expected.to validate_uniqueness_of(:nickname) }
+      it { is_expected.to validate_uniqueness_of(:email).ignoring_case_sensitivity }
     end
   end
 
