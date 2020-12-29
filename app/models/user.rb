@@ -51,7 +51,7 @@ class User < ApplicationRecord
   end
 
   def admin?
-    type == 'Administrator'
+    false
   end
 
   def show_content_for?(user)
