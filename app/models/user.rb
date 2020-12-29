@@ -50,6 +50,10 @@ class User < ApplicationRecord
     !private?
   end
 
+  def admin?
+    type == 'Administrator'
+  end
+
   def show_content_for?(user)
     user.public? || following_status_for(user) == 'active'
   end

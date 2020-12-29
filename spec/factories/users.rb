@@ -1,13 +1,9 @@
 FactoryBot.define do
-  factory :user do
+  factory :user, class: 'User' do
     name { Faker::Name.name }
     nickname { Faker::Internet.unique.username }
     email { Faker::Internet.unique.safe_email }
     password { Faker::Internet.password }
-
-    factory :admin do
-      admin { true }
-    end
 
     factory :private_user do
       private { true }
@@ -42,5 +38,8 @@ FactoryBot.define do
         create_list(:comment, 2, user: user)
       end
     end
+  end
+
+  factory :admin, parent: :user, class: 'Administrator' do
   end
 end
