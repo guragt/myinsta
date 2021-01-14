@@ -86,8 +86,9 @@ RSpec.describe PostsController, type: :controller do
     describe 'PUT#update' do
       context 'with valid params' do
         before do
-          put :update, params: { id: user.posts.first,
-                                 post: post_valid_params.merge!(description: 'Valid description') }
+          put :update,
+              params: { id: user.posts.first,
+                        post: post_valid_params.merge!(description: 'Valid description') }
         end
         it 'redirects to root_path' do
           expect(response).to redirect_to(root_path)
@@ -101,8 +102,9 @@ RSpec.describe PostsController, type: :controller do
 
       context 'user is not author of post' do
         before do
-          put :update, params: { id: other_post,
-                                 post: post_valid_params.merge!(description: 'Valid description') }
+          put :update,
+              params: { id: other_post,
+                        post: post_valid_params.merge!(description: 'Valid description') }
         end
         it 'redirects to root_path' do
           expect(response).to redirect_to(root_path)
@@ -220,8 +222,9 @@ RSpec.describe PostsController, type: :controller do
 
     describe 'PUT#update' do
       before do
-        put :update, params: { id: user.posts.first,
-                               post: post_valid_params.merge!(description: 'Valid description') }
+        put :update,
+            params: { id: user.posts.first,
+                      post: post_valid_params.merge!(description: 'Valid description') }
       end
 
       it 'does not redirect to root_path' do

@@ -7,15 +7,13 @@ AllCops:
     - "vendor/**/*"
     - "config/initializers/simple_form_bootstrap.rb"
     - "db/schema.rb"
+    - "db/migrate/*"
+  NewCops: enable
 
 Layout/LineLength:
   Max: 90
   IgnoredPatterns:
     - '\A(\s)*#'
-
-Metrics/AbcSize:
-  Exclude:
-    - "db/migrate/*"
 
 Metrics/BlockLength:
   Exclude:
@@ -23,10 +21,6 @@ Metrics/BlockLength:
     - "lib/tasks/auto_annotate_models.rake"
     - "config/environments/*.rb"    
     - "config/routes.rb"
-
-Metrics/MethodLength:
-  Exclude:
-    - "db/migrate/*"
 
 Rails/FilePath:
   Enabled: false

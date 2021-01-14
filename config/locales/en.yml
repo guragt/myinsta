@@ -118,8 +118,10 @@ en:
     edit:
       title: "Edit post"
       submit: "Update post"
+      no_permission: "You have no permission to do this action"
     update:
       updated: "Post updated"
+      no_permission: "You have no permission to do this action"
     destroy:
       destroyed: "Post deleted"
       no_permission: "You have no permission to do this action"
