@@ -1,6 +1,8 @@
 class AvatarUploader < BaseUploader
   def default_url(*_args)
-    ActionController::Base.helpers.asset_path('fallback/' + [version_name, 'default_avatar.png'].compact.join('_'))
+    ActionController::Base
+      .helpers
+      .asset_path("fallback/#{[version_name, 'default_avatar.png'].compact.join('_')}")
   end
 
   version :thumb do

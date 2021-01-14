@@ -1,10 +1,12 @@
 module ApplicationHelper
+  PARTIAL_NAMES = {
+    not_following: 'follow',
+    pending: 'cancel',
+    active: 'unfollow'
+  }.freeze
+
   def following_status_partial_name(follower, followed)
-    case follower.following_status_for(followed)
-    when 'not_following' then 'follow'
-    when 'pending' then 'cancel'
-    when 'active' then 'unfollow'
-    end
+    PARTIAL_NAMES[follower.following_status_for(followed).to_sym]
   end
 
   def relationship_update_partial_name(relationship)

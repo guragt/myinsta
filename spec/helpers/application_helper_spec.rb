@@ -42,21 +42,21 @@ RSpec.describe ApplicationHelper, type: :helper do
     let!(:followed) { create(:user) }
 
     it 'should return unfollow_message' do
-      helper.stub(:current_user) { follower }
+      allow(helper).to receive(:current_user).and_return(follower)
       relation = follower.active_relationships.create(followed_id: followed.id,
                                                       status: 'active')
       expect(helper.relationship_delete_partial_name(relation)).to eq('unfollow_message')
     end
 
     it 'should return delete_message' do
-      helper.stub(:current_user) { followed }
+      allow(helper).to receive(:current_user).and_return(followed)
       relation = followed.passive_relationships.create(follower_id: follower.id,
                                                        status: 'active')
       expect(helper.relationship_delete_partial_name(relation)).to eq('delete_message')
     end
 
     it 'should return decline_message' do
-      helper.stub(:current_user) { followed }
+      allow(helper).to receive(:current_user).and_return(followed)
       relation = followed.passive_relationships.create(follower_id: follower.id,
                                                        status: 'declined')
       expect(helper.relationship_delete_partial_name(relation)).to eq('unlock_message')

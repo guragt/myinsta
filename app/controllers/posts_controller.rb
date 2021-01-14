@@ -54,9 +54,9 @@ class PostsController < ApplicationController
   end
 
   def check_user
-    if @post.user != current_user
-      flash[:warning] = t('.no_permission')
-      redirect_to root_path
-    end
+    return if @post.user == current_user
+
+    flash[:warning] = t('.no_permission')
+    redirect_to root_path
   end
 end

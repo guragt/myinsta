@@ -40,6 +40,5 @@ FactoryBot.define do
     end
   end
 
-  factory :admin, parent: :user, class: 'Administrator' do
-  end
+  factory :admin, parent: :user, class: 'Administrator'
 end
