@@ -5,6 +5,7 @@ language: ruby
 install:
   - nvm install node
   - bundle
+  - yarn install
 before_script:
   - cp config/database.yml.travis config/database.yml
   - rake db:create
