@@ -1,11 +1,9 @@
 dist: xenial
 cache:
   bundler: true
-  yarn: true
 language: ruby
 install:
   - bundle
-  - yarn
 before_script:
   - cp config/database.yml.travis config/database.yml
   - rake db:setup
