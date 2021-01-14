@@ -3,11 +3,13 @@ cache:
   bundler: true
 language: ruby
 install:
+  - travis_retry nvm install 13.5.0
   - bundle
 before_script:
   - cp config/database.yml.travis config/database.yml
   - rake db:create
   - rake db:migrate RAILS_ENV=test
+  - bundle exec rails webpacker:compile
 script:
   - bundle exec rake
   - bundle exec rubocop --require rubocop-rails
