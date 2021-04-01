@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
+gem 'activerecord-session_store'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap-sass', '3.4.1'
 gem 'carrierwave', '~> 2.0'
@@ -13,6 +14,8 @@ gem 'fog-aws'
 gem 'jbuilder', '~> 2.7'
 gem 'kaminari'
 gem 'mini_magick'
+gem 'omniauth-oktaoauth'
+gem 'omniauth-rails_csrf_protection', '~> 0.1'
 gem 'paranoia'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
