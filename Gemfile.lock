@@ -53,12 +53,6 @@ GEM
     activerecord (6.0.3.6)
       activemodel (= 6.0.3.6)
       activesupport (= 6.0.3.6)
-    activerecord-session_store (2.0.0)
-      actionpack (>= 5.2.4.1)
-      activerecord (>= 5.2.4.1)
-      multi_json (~> 1.11, >= 1.11.2)
-      rack (>= 2.0.8, < 3)
-      railties (>= 5.2.4.1)
     activestorage (6.0.3.6)
       actionpack (= 6.0.3.6)
       activejob (= 6.0.3.6)
@@ -383,7 +377,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-session_store
   bootsnap (>= 1.4.2)
   bootstrap-sass (= 3.4.1)
   byebug
