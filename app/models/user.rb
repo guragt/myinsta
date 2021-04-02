@@ -27,11 +27,20 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :omniauthable, omniauth_providers: [:oktaoauth]
 
   acts_as_paranoid
 
   mount_uploader :avatar, AvatarUploader
+
+  def self.from_omniauth(auth)
+    User.find_or_create_by(email: auth['info']['email']) do |user|
+      user.provider = auth['provider']
+      user.uid = auth['uid']
+      user.email = auth['info']['email']
+    end
+  end
 
   def following_status_for(other_user)
     return 'not_following' unless following.include?(other_user)
