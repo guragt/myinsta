@@ -17,6 +17,7 @@
         <%= f.button :submit, t('.submit'), class: "btn btn-primary" %>
       </div>
     <% end %>
+    <%= link_to 'Sign in via Okta', user_oktaoauth_omniauth_authorize_path, method: :post %> <br />
     <%= render "devise/shared/links" %>
   </div>
 </div>
