@@ -189,5 +189,6 @@ en:
       greeting: "Hello, %{name}!"
       follower_content: 'begins to follow you.'
       request_content: 'sends you a follow request.'
+  need_sign_up: "You need to sign up before continuing."
       
 
