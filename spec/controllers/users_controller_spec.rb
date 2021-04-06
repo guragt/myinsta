@@ -64,6 +64,7 @@ RSpec.describe UsersController, type: :controller do
         end
 
         it 'updates user name' do
+          user.reload
           expect(user.name).to eq(valid_params[:name])
         end
       end

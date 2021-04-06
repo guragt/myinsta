@@ -56,9 +56,7 @@ en:
       edit:
         title: "Change password"
         submit: "Change password"
-        remove: "Remove my account"
         cancel: "Cancel"
-        sure: "Are you sure?"
     passwords:
       new:
         title: "Forgot your password?"
@@ -78,6 +76,8 @@ en:
       title: "Edit user"
       submit: "Update"
       cancel: "Cancel"
+      remove: "Remove my account"
+      sure: "Are you sure?"
     update:
       updated: "Your account has been updated successfully."      
     followers:
