@@ -75,19 +75,21 @@ en:
   users:
     index:
       title: "Search results for \"%{search}\""
+    edit:
+      title: "Edit user"
+      submit: "Update"
+      cancel: "Cancel"      
     followers:
       title: "Followers"
       delete: "Delete"
     following:
       title: "Following"
       unfollow: "Unfollow"
-    show:
+    main_info:
       edit_profile: "Edit profile"
       posts: "posts"
       followers: "followers"
       following: "following"
-      no_posts: "No posts yet"
-      private_account: "This account is private"
     declined:
       title: "Block list"
       unlock: "Unlock"

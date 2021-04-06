@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :obtain_user, only: %i[show following followers]
+  before_action :obtain_current_user, only: %i[edit update]
   before_action :obtain_active_relationships, only: %i[index show]
 
   def index
@@ -10,6 +11,17 @@ class UsersController < ApplicationController
   def show
     redirect_to current_users_path if @user == current_user
     @posts = @user.posts.order(created_at: :desc)
+  end
+
+  def edit; end
+
+  def update
+    if @user.update(user_params)
+      flash[:success] = t('.updated')
+      redirect_to root_path
+    else
+      render 'edit'
+    end
   end
 
   def current
@@ -30,8 +42,17 @@ class UsersController < ApplicationController
 
   private
 
+  def user_params
+    params.require(:user).permit(:name, :nickname, :email, :private, :avatar,
+                                 :avatar_cache, :remove_avatar)
+  end
+
   def obtain_user
     @user = User.find(params[:id])
+  end
+
+  def obtain_current_user
+    @user = current_user
   end
 
   def obtain_active_relationships
