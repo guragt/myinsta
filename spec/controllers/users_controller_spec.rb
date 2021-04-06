@@ -5,6 +5,7 @@ RSpec.describe UsersController, type: :controller do
   let!(:second_user) { create(:user, name: 'Johnny Dep', nickname: 'some_nick') }
   let!(:third_user) { create(:user, name: 'Some Name', nickname: '<<jonathan>>') }
   let!(:fourth_user) { create(:user, name: 'Default Name', nickname: 'default_nick') }
+  let!(:valid_params) { attributes_for(:user) }
 
   context 'authorized user' do
     before { sign_in user }
@@ -41,6 +42,59 @@ RSpec.describe UsersController, type: :controller do
         get :current
         expect(response).to have_http_status(:success)
         expect(response).to render_template('current')
+      end
+    end
+
+    describe 'GET#edit' do
+      it 'renders edit template' do
+        get :edit
+        expect(response).to have_http_status(:success)
+        expect(response).to render_template('edit')
+      end
+    end
+
+    describe 'PATCH#update' do
+      context 'with valid params' do
+        before do
+          patch :update, params: { user: valid_params }
+        end
+        it 'redirects to root_path' do
+          expect(response).to redirect_to(root_path)
+          expect(flash[:success]).to be_present
+        end
+
+        it 'updates user name' do
+          user.reload
+          expect(user.name).to eq(valid_params[:name])
+        end
+      end
+
+      context 'with invalid params' do
+        before do
+          patch :update, params: { user: valid_params.merge!(nickname: '') }
+        end
+        it 'does not redirect to root_path' do
+          expect(response).to_not redirect_to(root_path)
+          expect(flash[:success]).to_not be_present
+        end
+
+        it 'does not update user nickname' do
+          expect(user.nickname).to_not eq(valid_params[:nickname])
+        end
+      end
+
+      context 'with email of other user' do
+        before do
+          patch :update, params: { user: valid_params.merge!(email: second_user.email) }
+        end
+        it 'does not redirect to root_path' do
+          expect(response).to_not redirect_to(root_path)
+          expect(flash[:success]).to_not be_present
+        end
+
+        it 'does not update user email' do
+          expect(user.email).to_not eq(valid_params[:email])
+        end
       end
     end
 
@@ -91,6 +145,25 @@ RSpec.describe UsersController, type: :controller do
         get :current
         expect(response).to redirect_to(new_user_session_path)
         expect(response).to_not render_template('current')
+      end
+    end
+
+    describe 'GET#edit' do
+      it 'does not render edit template' do
+        get :edit
+        expect(response).to redirect_to(new_user_session_path)
+        expect(response).to_not render_template('edit')
+      end
+    end
+
+    describe 'PATCH#update' do
+      before do
+        patch :update, params: { user: valid_params }
+      end
+
+      it 'does not redirect to root_path' do
+        expect(response).to redirect_to(new_user_session_path)
+        expect(flash[:success]).to_not be_present
       end
     end
 

@@ -1,0 +1,27 @@
+<h2><%= t('.title') %></h2>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="edit-form">
+      <%= simple_form_for @user, url: update_profile_users_path, method: :patch do |f| %>
+        <div class="form-inputs">
+          <div class="edit-profile-image">
+  	        <%= image_tag @user.avatar.thumb.url %>
+          </div>
+          <%= f.input :remove_avatar, as: :boolean if @user.avatar? %>
+          <%= f.file_field :avatar %>
+          <%= f.hidden_field :avatar_cache %>
+          <%= f.input :name %>
+          <%= f.input :nickname %>
+          <%= f.input :email, required: true %>
+          <%= f.input :private, as: :boolean %>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, t('.submit'), class: "btn btn-primary" %>
+        </div>
+      <% end %>
+      <%= link_to t('.remove'), registration_path(@user), class: "btn btn-danger wide-button", data: { confirm: t('.sure') }, method: :delete %>
+      <%= link_to t('.cancel'), root_path, class: "btn btn-default wide-button" %>
+    </div>
+  </div>
+</div>

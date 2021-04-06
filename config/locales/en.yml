@@ -54,12 +54,9 @@ en:
         title: "Sign up"
         submit: "Sign up"
       edit:
-        title: "Edit user"
-        submit: "Update"
-        remove: "Remove my account"
+        title: "Change password"
+        submit: "Change password"
         cancel: "Cancel"
-        leave_blank: "leave it blank if you don't want to change it"
-        sure: "Are you sure?"
     passwords:
       new:
         title: "Forgot your password?"
@@ -75,19 +72,25 @@ en:
   users:
     index:
       title: "Search results for \"%{search}\""
+    edit:
+      title: "Edit user"
+      submit: "Update"
+      cancel: "Cancel"
+      remove: "Remove my account"
+      sure: "Are you sure?"
+    update:
+      updated: "Your account has been updated successfully."      
     followers:
       title: "Followers"
       delete: "Delete"
     following:
       title: "Following"
       unfollow: "Unfollow"
-    show:
+    main_info:
       edit_profile: "Edit profile"
       posts: "posts"
       followers: "followers"
       following: "following"
-      no_posts: "No posts yet"
-      private_account: "This account is private"
     declined:
       title: "Block list"
       unlock: "Unlock"

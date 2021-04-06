@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :users, only: %i[index show] do
     collection do
       get :current, :declined
+      get :edit_profile, to: 'users#edit'
+      patch :update_profile, to: 'users#update'
     end
 
     member do
