@@ -54,11 +54,10 @@ en:
         title: "Sign up"
         submit: "Sign up"
       edit:
-        title: "Edit user"
-        submit: "Update"
+        title: "Change password"
+        submit: "Change password"
         remove: "Remove my account"
         cancel: "Cancel"
-        leave_blank: "leave it blank if you don't want to change it"
         sure: "Are you sure?"
     passwords:
       new:

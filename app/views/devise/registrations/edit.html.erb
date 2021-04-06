@@ -5,18 +5,7 @@
     <div class="edit-form">
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <div class="form-inputs">
-          <div class="edit-profile-image">
-  	        <%= image_tag @user.avatar.thumb.url %>
-          </div>
-          <%= f.input :remove_avatar, as: :boolean if @user.avatar? %>
-          <%= f.file_field :avatar %>
-          <%= f.hidden_field :avatar_cache %>
-          <%= f.input :name %>
-          <%= f.input :nickname %>
-          <%= f.input :email, required: true %>
-          <%= f.input :private, as: :boolean %>
-          <%= f.input :password,
-                      hint: t('.leave_blank') %>           
+          <%= f.input :password %>           
           <%= f.input :password_confirmation %>
           <%= f.input :current_password %>
         </div>
