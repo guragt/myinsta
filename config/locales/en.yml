@@ -60,7 +60,7 @@ en:
     passwords:
       new:
         title: "Forgot your password?"
-        submit: "Send me reset password instructions"
+        submit: "Reset password"
       edit:
         title: "Change your password"
         submit: "Change my password"
