@@ -35,11 +35,22 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   def self.from_omniauth(auth)
-    User.find_or_create_by(email: auth['info']['email']) do |user|
-      user.provider = auth['provider']
-      user.uid = auth['uid']
-      user.email = auth['info']['email']
+    if (user = find_by(email: auth['info']['email']))
+      user.update(okta_params(auth))
+    else
+      user = create(okta_params(auth))
     end
+
+    user
+  end
+
+  def self.okta_params(auth)
+    {
+      provider: auth['provider'],
+      uid: auth['uid'],
+      email: auth['info']['email'],
+      password: Devise.friendly_token[0, 20]
+    }
   end
 
   def following_status_for(other_user)
