@@ -55,7 +55,7 @@
               <% if current_user.uid.nil? %>
                 <li><%= link_to t('.change_pass'), edit_user_registration_path %></li>
               <% else %>
-                <li><%= link_to t('.change_pass'), "#{ENV['OKTA_URL']}/enduser/settings" %></li>
+                <li><%= link_to t('.change_pass'), URI.join(Rails.configuration.okta_url, '/enduser/settings').to_s %></li>
               <% end %>
               <li><%= link_to t('.block_list'), declined_users_path %></li>
               <li class="divider"></li>
