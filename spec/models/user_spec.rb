@@ -84,4 +84,40 @@ RSpec.describe User, type: :model do
       expect(user.show_post_for?(user)).to be true
     end
   end
+
+  describe 'from_omniath' do
+    let!(:user) { create(:user) }
+    let!(:existing_user_okta_hash) do
+      OmniAuth::AuthHash.new({
+                               'provider' => 'oktaoauth',
+                               'uid' => '12345',
+                               'info' => {
+                                 'email' => user.email
+                               }
+                             })
+    end
+    let!(:new_user_okta_hash) do
+      OmniAuth::AuthHash.new({
+                               'provider' => 'oktaoauth',
+                               'uid' => '67890',
+                               'info' => {
+                                 'email' => 'okta_email@test.net'
+                               }
+                             })
+    end
+
+    it 'should update uid and provider of existing user' do
+      User.from_omniauth(existing_user_okta_hash)
+      user.reload
+      expect(user.uid).to eq(existing_user_okta_hash['uid'])
+      expect(user.provider).to eq(existing_user_okta_hash['provider'])
+    end
+
+    it 'should return new user' do
+      new_user = User.from_omniauth(new_user_okta_hash)
+      expect(new_user.uid).to eq(new_user_okta_hash['uid'])
+      expect(new_user.provider).to eq(new_user_okta_hash['provider'])
+      expect(new_user.email).to eq(new_user_okta_hash['info']['email'])
+    end
+  end
 end
