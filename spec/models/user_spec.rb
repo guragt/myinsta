@@ -89,20 +89,16 @@ RSpec.describe User, type: :model do
     let!(:user) { create(:user) }
     let!(:existing_user_okta_hash) do
       OmniAuth::AuthHash.new({
-                               'provider' => 'oktaoauth',
-                               'uid' => '12345',
-                               'info' => {
-                                 'email' => user.email
-                               }
+                               provider: 'oktaoauth',
+                               uid: '12345',
+                               info: { email: user.email }
                              })
     end
     let!(:new_user_okta_hash) do
       OmniAuth::AuthHash.new({
-                               'provider' => 'oktaoauth',
-                               'uid' => '67890',
-                               'info' => {
-                                 'email' => 'okta_email@test.net'
-                               }
+                               provider: 'oktaoauth',
+                               ui: '67890',
+                               info: { email: 'okta_email@test.net' }
                              })
     end
 
