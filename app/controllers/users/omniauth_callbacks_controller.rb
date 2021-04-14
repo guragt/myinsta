@@ -5,8 +5,9 @@ module Users
       if @user.persisted?
         sign_in_and_redirect @user
       else
-        flash[:warning] = t('need_sign_up')
-        redirect_to new_user_registration_path
+        @user.save(validate: false)
+        sign_in @user
+        redirect_to edit_profile_users_path
       end
     end
   end

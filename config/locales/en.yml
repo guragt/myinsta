@@ -60,7 +60,7 @@ en:
     passwords:
       new:
         title: "Forgot your password?"
-        submit: "Send me reset password instructions"
+        submit: "Reset password"
       edit:
         title: "Change your password"
         submit: "Change my password"
@@ -73,8 +73,8 @@ en:
     index:
       title: "Search results for \"%{search}\""
     edit:
-      title: "Edit user"
-      submit: "Update"
+      title: "User profile"
+      submit: "Save"
       cancel: "Cancel"
       remove: "Remove my account"
       sure: "Are you sure?"
@@ -170,7 +170,8 @@ en:
   layouts:
     header:
       profile: "Profile"
-      settings: "Settings"
+      edit_profile: "Edit profile"
+      change_pass: "Change password"
       block_list: "Block list"
       log_in: "Log in"
       log_out: "Log out"
