@@ -8,7 +8,7 @@ module Api
 
       def authentication_check
         authenticate_or_request_with_http_basic do |user, password|
-          user == ENV['USERNAME'] && password == ENV['PASSWORD']
+          user == Rails.configuration.username && password == Rails.configuration.password
         end
       end
     end
