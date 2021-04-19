@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  scope :native_auth, -> { where(provider: nil) }
+  scope :okta_auth,   -> { where(provider: 'oktaoauth') }
+
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
