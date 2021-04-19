@@ -1,6 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  describe 'scope tests' do
+    let!(:native_user) { create(:user) }
+    let!(:okta_user) { create(:user, provider: 'oktaoauth', uid: '12345') }
+
+    it 'response to okta_auth' do
+      expect(User.okta_auth).to include(okta_user)
+      expect(User.okta_auth).to_not include(native_user)
+    end
+
+    it 'response to native_auth' do
+      expect(User.native_auth).to_not include(okta_user)
+      expect(User.native_auth).to include(native_user)
+    end
+  end
+
   describe 'Associations' do
     it { is_expected.to have_many(:posts).dependent(:destroy) }
     it { is_expected.to have_many(:likes).dependent(:destroy) }
