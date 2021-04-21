@@ -12,8 +12,6 @@ RSpec.describe Users::PasswordsController, type: :controller do
         post :create, params: { user: { email: native_user.email } }
 
         expect(response).to redirect_to(new_user_session_path)
-        expect(ActionMailer::Base.deliveries.count).to eq(1)
-        expect(ActionMailer::Base.deliveries[0].to).to include(native_user.email)
       end
     end
 
@@ -27,7 +25,6 @@ RSpec.describe Users::PasswordsController, type: :controller do
 
         expect(response).to redirect_to(URI.join(Rails.configuration.okta_url,
                                                  '/enduser/settings').to_s)
-        expect(ActionMailer::Base.deliveries.count).to eq(0)
       end
     end
   end
