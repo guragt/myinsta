@@ -84,4 +84,8 @@ class User < ApplicationRecord
   def show_post_for?(user)
     self == user || show_content_for?(user)
   end
+
+  def send_devise_notification(notification, *args)
+    devise_mailer.send(notification, self, *args).deliver_later
+  end
 end
