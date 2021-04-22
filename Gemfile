@@ -7,7 +7,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap-sass', '3.4.1'
 gem 'carrierwave', '~> 2.0'
 gem 'devise'
-gem 'devise-async'
 gem 'figaro'
 gem 'file_validators'
 gem 'fog-aws'
