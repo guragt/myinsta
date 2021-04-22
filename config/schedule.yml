@@ -1,0 +1,4 @@
+send_user_statistics_email:
+  cron: "0 9 * * 1"
+  class: "SendUserStatisticsEmailJob"
+  queue: mailers
