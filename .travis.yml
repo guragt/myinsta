@@ -3,9 +3,9 @@ cache:
   bundler: true
 language: ruby
 install:
-  - nvm install node
+  - travis_retry nvm install 13.5.0
   - bundle
-  - yarn install
+  - yarn
 before_script:
   - cp config/database.yml.travis config/database.yml
   - rake db:create
