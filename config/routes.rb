@@ -1,5 +1,14 @@
+require 'sidekiq/web'
+require 'sidekiq/cron/web'
+
 Rails.application.routes.draw do
+  authenticate :user, ->(u) { u.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+  get '/sidekiq' => redirect('/')
+
   root 'posts#index'
+
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks',
                                     passwords: 'users/passwords' }
 

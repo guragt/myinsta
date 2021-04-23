@@ -8,7 +8,7 @@ class Relationship < ApplicationRecord
   validates :followed_id, presence: true
   validates :status, presence: true
 
-  after_create :send_relationship_notification, unless: -> { Rails.env.test? }
+  after_create :send_relationship_notification
 
   private
 

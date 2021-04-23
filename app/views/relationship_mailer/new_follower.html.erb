@@ -1,6 +1,6 @@
 <p><%= t('.greeting', name: @relationship.followed.name) %></p>
 
 <p>
-  <%= link_to @relationship.follower.nickname, @relationship.follower %>
+  <%= link_to @relationship.follower.nickname, user_url(@relationship.follower) %>
   <%= @relationship.active? ? t('.follower_content') : t('.request_content') %>
 </p>

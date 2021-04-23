@@ -21,6 +21,8 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
 gem 'ransack'
 gem 'rubocop-rails', require: false
 gem 'sass-rails', '>= 6'
+gem 'sidekiq'
+gem 'sidekiq-cron', '~> 1.1'
 gem 'simple_form'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'

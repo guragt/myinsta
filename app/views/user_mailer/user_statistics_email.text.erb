@@ -1,0 +1,5 @@
+<%= t('.content', begin: @report_period.begin.strftime('%d.%m.%Y'), end: @report_period.end.strftime('%d.%m.%Y')) %>
+
+<%= t('.new_users_count', count: @new_users_count) %>
+<%= t('.deleted_users_count', count: @deleted_users_count) %>
+<%= t('.total_users_count', count: @total_users_count) %>

@@ -198,6 +198,11 @@ en:
       greeting: "Hello, %{name}!"
       follower_content: 'begins to follow you.'
       request_content: 'sends you a follow request.'
+  user_mailer:
+    subject: "User's statistics"
+    user_statistics_email:
+      content: "User's statistics for the last week (%{begin} - %{end})"
+      new_users_count: "New users count: %{count}"
+      deleted_users_count: "Deleted users count: %{count}"
+      total_users_count: "Total users count: %{count}"
   need_sign_up: "You need to sign up before continuing."
-      
-
