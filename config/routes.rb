@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   authenticate :user, ->(u) { u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
   end
+  get '/sidekiq' => redirect('/')
 
   root 'posts#index'
 
