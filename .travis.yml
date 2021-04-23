@@ -3,7 +3,6 @@ cache:
   bundler: true
 language: ruby
 install:
-  - travis_retry nvm install 13.7.0
   - bundle
   - yarn
 before_script:

@@ -13,6 +13,6 @@ class Relationship < ApplicationRecord
   private
 
   def send_relationship_notification
-    SendNewRelationshipEmailJob.perform_later(id)
+    RelationshipMailer.new_follower(self).deliver_later
   end
 end
