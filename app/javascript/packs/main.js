@@ -25,20 +25,20 @@
 // comment out the above code and uncomment the below
 // Add <%= javascript_pack_tag 'hello_vue' %> to your layout
 // Then add this markup to your html template:
-//
 
-import Vue from 'vue/dist/vue.esm'
-import App from '../app.vue'
 
-document.addEventListener('DOMContentLoaded', () => {
-  const app = new Vue({
-    el: '#main',
-    data: {
-      message: "Can you say hello?"
-    },
-    components: { App }
-  })
-})
+// import Vue from 'vue/dist/vue.esm'
+// import App from '../app.vue'
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   const app = new Vue({
+//     el: '#main',
+//     data: {
+//       message: "Can you say hello?"
+//     },
+//     components: { App }
+//   })
+// })
 
 //
 //
@@ -48,20 +48,20 @@ document.addEventListener('DOMContentLoaded', () => {
 //
 // Then uncomment the code block below:
 //
-// import TurbolinksAdapter from 'vue-turbolinks'
-// import Vue from 'vue/dist/vue.esm'
-// import App from '../app.vue'
+import TurbolinksAdapter from 'vue-turbolinks'
+import Vue from 'vue/dist/vue.esm'
+import App from '../app.vue'
 
-// Vue.use(TurbolinksAdapter)
+Vue.use(TurbolinksAdapter)
 
-// document.addEventListener('turbolinks:load', () => {
-//   const app = new Vue({
-//     el: '#hello',
-//     data: () => {
-//       return {
-//         message: "Can you say hello?"
-//       }
-//     },
-//     components: { App }
-//   })
-// })
+document.addEventListener('turbolinks:load', () => {
+  const app = new Vue({
+    el: '#main',
+    data: () => {
+      return {
+        message: "Can you say hello?"
+      }
+    },
+    components: { App }
+  })
+})

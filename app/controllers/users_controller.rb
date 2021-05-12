@@ -33,11 +33,13 @@ class UsersController < ApplicationController
   end
 
   def following
-    @relationships = @user.active_relationships.active.page(params[:page])
+    @relationships = @user.active_relationships.active
+    render json: @relationships.to_json(include: [:followed])
   end
 
   def followers
-    @relationships = @user.passive_relationships.active.page(params[:page])
+    @relationships = @user.passive_relationships.active
+    render json: @relationships.to_json(include: [:follower])
   end
 
   private
