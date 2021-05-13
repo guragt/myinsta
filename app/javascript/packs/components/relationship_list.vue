@@ -26,7 +26,7 @@
     },
     mounted() {
       axios
-        .get(`http://localhost:3000/users/${this.userId}/${this.listType}`)
+        .get(`/users/${this.userId}/${this.listType}`)
         .then(response => (this.relationships = response.data));
   }
   };
