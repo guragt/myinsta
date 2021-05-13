@@ -15,19 +15,25 @@
   </div>
 
   <div class="profile-stats">
-		<ul>
-			<li>
+	  <ul>
+		  <li>
         <span class="profile-stat-count"><%= user.posts.count %></span> <%= t('.posts') %>
       </li>
       <li>
-        <%= link_to followers_user_path(user), class: "profile-stat-link" do %>
-          <span class='profile-stat-count'><%= user.passive_relationships.active.count %></span> <%= t('.followers') %>
-        <% end %>
+        <app
+          btn-count=<%= user.passive_relationships.active.count %>
+          btn-text=<%= t('.followers') %>
+          user-id=<%= user.id %>
+          list-type="followers"
+        ></app>
       </li>
       <li>
-        <%= link_to following_user_path(user), class: "profile-stat-link" do %>
-          <span class="profile-stat-count"><%= user.active_relationships.active.count %></span> <%= t('.following') %>
-        <% end %>
+        <app
+          btn-count=<%= user.active_relationships.active.count %>
+          btn-text=<%= t('.following') %>
+          user-id=<%= user.id %>
+          list-type="following"
+        ></app>
       </li>
 		</ul>
 	</div>
