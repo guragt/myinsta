@@ -1,5 +1,6 @@
 class RelationshipsController < ApplicationController
   before_action :authenticate_user!
+  skip_before_action :verify_authenticity_token, only: :destroy
   before_action :obtain_relationship, only: %i[update destroy]
   before_action :obtain_active_relationships, only: %i[create destroy]
 

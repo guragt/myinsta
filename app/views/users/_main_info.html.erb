@@ -25,6 +25,7 @@
           btn-text=<%= t('.followers') %>
           user-id=<%= user.id %>
           list-type="followers"
+          is-current-user=<%= current_user == user %>
         ></app>
       </li>
       <li>
@@ -33,6 +34,7 @@
           btn-text=<%= t('.following') %>
           user-id=<%= user.id %>
           list-type="following"
+          is-current-user=<%= current_user == user %>
         ></app>
       </li>
 		</ul>

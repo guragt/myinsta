@@ -4,6 +4,7 @@
       <relationship-item
         v-bind:item="item"
         v-bind:listType="listType"
+        v-bind:isCurrentUser="isCurrentUser"
       ></relationship-item>
     </li>
   </ul>
@@ -15,7 +16,7 @@
 
   export default {
     name: 'RelationshipList',
-    props: ['userId', 'listType'],
+    props: ['userId', 'listType', 'isCurrentUser'],
     components: {
       RelationshipItem
     },
@@ -36,5 +37,6 @@
   .relationship {
     display: list-item;
     position: relative;
+    margin: 0;
   }
 </style>

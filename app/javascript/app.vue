@@ -9,6 +9,7 @@
       v-bind:title="btnText"
       v-bind:userId="userId"
       v-bind:listType="listType"
+      v-bind:isCurrentUser="isCurrentUser"
       @close="closeModal"
     ></modal>
   </div>
@@ -21,7 +22,7 @@
     components: {
       Modal
     },
-    props: ['btnCount', 'btnText', 'userId', 'listType'],
+    props: ['btnCount', 'btnText', 'userId', 'listType', 'isCurrentUser'],
     data: function () {
       return {
         isModalVisible: false

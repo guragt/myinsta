@@ -13,6 +13,7 @@
             <relationship-list 
               v-bind:userId="userId"
               v-bind:listType="listType"
+              v-bind:isCurrentUser="isCurrentUser"
             ></relationship-list>
           </div>
 
@@ -27,7 +28,7 @@
 
   export default {
     name: 'Modal',
-    props: ['title', 'userId', 'listType'],
+    props: ['title', 'userId', 'listType', 'isCurrentUser'],
     components: {
       RelationshipList
     },
