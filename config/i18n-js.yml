@@ -1,5 +1,0 @@
-translations:
-- file: 'config/locales/en.yml'
-  prefix: "import I18n from 'i18n-js';\n"
-  pretty_print: true
-  only: 'en.*'

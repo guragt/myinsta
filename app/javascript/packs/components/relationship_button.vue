@@ -47,11 +47,3 @@
     margin-top: 8px;
   }
 </style>
-
-<i18n>
-{
-  "en": {
-    "unfollow": "Hello i18n in SFC!"
-  }
-}
-</i18n>
