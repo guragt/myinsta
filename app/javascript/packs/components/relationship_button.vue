@@ -3,15 +3,17 @@
     {{ messageText }}
   </span>
   <span v-else class="follow-button">
-    <button class="btn btn-default" @click="deleteRelationship">{{ buttonText }}</button>
+    <button class="btn btn-default" @click="deleteRelationship">{{ t("unfollow") }}</button>
   </span>
 </template>
 
 <script>
   import axios from "axios";
+  import i18n from "./mixins/i18n";
 
   export default {
     name: 'RelationshipButton',
+    mixins: [i18n],
     props: ['itemId', 'listType'],
     data: function () {
       return {
@@ -45,3 +47,11 @@
     margin-top: 8px;
   }
 </style>
+
+<i18n>
+{
+  "en": {
+    "unfollow": "Hello i18n in SFC!"
+  }
+}
+</i18n>
