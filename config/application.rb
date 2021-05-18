@@ -17,7 +17,5 @@ module Myinsta
     # the framework and any gems in your application.
     config.generators.test_framework :rspec
     config.active_job.queue_adapter = :sidekiq
-    config.i18n.available_locales = [:en]
-    config.middleware.use I18n::JS::Middleware
   end
 end

@@ -30,7 +30,6 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  unfollow: "Unfollow"
   hello: "Hello world"
   errors:
     messages:
@@ -207,3 +206,8 @@ en:
       deleted_users_count: "Deleted users count: %{count}"
       total_users_count: "Total users count: %{count}"
   need_sign_up: "You need to sign up before continuing."
+  js:
+    delete: "Delete"
+    deleted: "Deleted"
+    unfollow: "Unfollow"
+    unfollowed: "Unfollowed"

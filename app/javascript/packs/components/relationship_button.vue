@@ -3,7 +3,7 @@
     {{ messageText }}
   </span>
   <span v-else class="follow-button">
-    <button class="btn btn-default" @click="deleteRelationship">{{ t("unfollow") }}</button>
+    <button class="btn btn-default" @click="deleteRelationship">{{ buttonText }}</button>
   </span>
 </template>
 
@@ -23,10 +23,10 @@
 
     computed: {
       buttonText: function () {
-        return this.listType === 'followers' ? 'Delete' : 'Unfollow'
+        return this.listType === 'followers' ? this.t("js.delete") : this.t("js.unfollow")
       },
       messageText: function () {
-        return this.listType === 'followers' ? 'Deleted' : 'Unfollowed'
+        return this.listType === 'followers' ? this.t("js.deleted") : this.t("js.unfollowed")
       }
     },
 
