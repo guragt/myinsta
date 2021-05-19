@@ -11,7 +11,7 @@ before_script:
   - rake db:create
   - rake db:migrate RAILS_ENV=test
   - rake assets:precompile WEBPACKER_PRECOMPILE=false
-  - bundle exec rails webpacker:compile
+  - ./bin/webpack --progress
 script:
   - xvfb-run -a --server-args="-screen 0 1024x768x24" bundle exec rake
   - bundle exec rubocop --require rubocop-rails
