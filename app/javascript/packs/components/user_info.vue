@@ -1,11 +1,11 @@
 <template>
-  <div :id="`user-${user.id}`">
+  <span :id="`user-${user.id}`">
     <a :href="'/users/' + user.id" class="post-avatar">
       <img :src="user.avatar.small_thumb.url">
     </a>
     <a :href="'/users/' + user.id" class="nick">{{ user.nickname }}</a>
     <span class= "name">{{ user.name }}</span>
-  </div>
+  </span>
 </template>
 
 <script>
