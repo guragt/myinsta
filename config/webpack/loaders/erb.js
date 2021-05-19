@@ -9,7 +9,7 @@ module.exports = {
       runner: (/^win/.test(process.platform) ? "ruby " : "") + "bin/rails runner",
       env: {
         ...process.env,
-        DISABLE_SPRING: 1,
+        DISABLE_SPRING: 0,
       },
     },
   }],
