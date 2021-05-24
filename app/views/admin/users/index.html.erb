@@ -13,6 +13,7 @@
           <th><%= t('.likes_count') %></th>
           <th><%= t('.account') %></th>
           <th><%= t('.status') %></th>
+          <th><%= t('.provider') %></th>
           <th><%= t('.registration') %></th>
         </tr>
       </thead>
@@ -28,7 +29,8 @@
             <td><%= user.likes.count %></td>
             <td><%= user.private? ? t('.private') : t('.public') %></td>
             <td><%= user.deleted_at? ? t('.deleted') : t('.active') %></td>
-            <td><%= user.created_at.strftime("%d/%m/%Y %T") %> </td>
+            <td><%= user.provider %></td>
+            <td><%= user.created_at.strftime("%d/%m/%Y %T") %></td>
           </tr>
         <% end %>
       </tbody>

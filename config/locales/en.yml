@@ -171,6 +171,7 @@ en:
         public: "Public"
         deleted: "Deleted"
         active: "Active"
+        provider: "Provider"
         not_authorized: "You are not authorized to perform this action"
   layouts:
     header:
