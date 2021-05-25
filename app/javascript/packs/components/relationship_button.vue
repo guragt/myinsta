@@ -15,6 +15,7 @@
     name: 'RelationshipButton',
     mixins: [i18n],
     props: ['itemId', 'listType'],
+    
     data: function () {
       return {
         isDeleted: false

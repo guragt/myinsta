@@ -17,24 +17,22 @@
   <div class="profile-stats">
 	  <ul>
 		  <li>
-        <span class="profile-stat-count"><%= user.posts.count %></span> <%= t('.posts') %>
+        <span class="profile-stat-count"><%= user.posts.count %></span> <%= t('.posts', { count:user.posts.count }) %>
       </li>
       <li>
         <app
-          btn-count=<%= user.passive_relationships.active.count %>
-          btn-text=<%= t('.followers') %>
-          user-id=<%= user.id %>
+          :btn-count=<%= user.passive_relationships.active.count %>
+          :user-id=<%= user.id %>
           list-type="followers"
-          is-current-user=<%= current_user == user %>
+          :is-current-user=<%= current_user == user %>
         ></app>
       </li>
       <li>
         <app
-          btn-count=<%= user.active_relationships.active.count %>
-          btn-text=<%= t('.following') %>
-          user-id=<%= user.id %>
+          :btn-count=<%= user.active_relationships.active.count %>
+          :user-id=<%= user.id %>
           list-type="following"
-          is-current-user=<%= current_user == user %>
+          :is-current-user=<%= current_user == user %>
         ></app>
       </li>
 		</ul>

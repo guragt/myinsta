@@ -11,9 +11,9 @@
 
           <div class="modal-body">
             <relationship-list 
-              v-bind:userId="userId"
-              v-bind:listType="listType"
-              v-bind:isCurrentUser="isCurrentUser"
+              :userId="userId"
+              :listType="listType"
+              :isCurrentUser="isCurrentUser"
             ></relationship-list>
           </div>
 
@@ -25,13 +25,23 @@
 
 <script>
   import RelationshipList from './relationship_list.vue';
+  import i18n from "./mixins/i18n";
 
   export default {
     name: 'Modal',
-    props: ['title', 'userId', 'listType', 'isCurrentUser'],
+    mixins: [i18n],
+    props: ['userId', 'listType', 'isCurrentUser'],
+    
     components: {
       RelationshipList
     },
+
+    computed: {
+      title: function () {
+        return this.listType === 'followers' ? this.t("js.followers_title") : this.t("js.following_title")
+      },
+    },
+
     methods: {
       close() {
         this.$emit('close');

@@ -93,9 +93,9 @@ en:
       unfollow: "Unfollow"
     main_info:
       edit_profile: "Edit profile"
-      posts: "posts"
-      followers: "followers"
-      following: "following"
+      posts:
+        one: "post"
+        other: "posts"
     declined:
       title: "Block list"
       unlock: "Unlock"
@@ -171,6 +171,7 @@ en:
         public: "Public"
         deleted: "Deleted"
         active: "Active"
+        provider: "Provider"
         not_authorized: "You are not authorized to perform this action"
   layouts:
     header:
@@ -211,3 +212,9 @@ en:
     deleted: "Deleted"
     unfollow: "Unfollow"
     unfollowed: "Unfollowed"
+    following: "following"
+    followers:
+      one: "follower"
+      other: "followers"
+    followers_title: "Followers"
+    following_title: "Following"

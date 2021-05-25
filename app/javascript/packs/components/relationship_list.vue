@@ -2,9 +2,9 @@
   <ul id="relationship-list">
     <li v-for="item in relationships" class="relationship">
       <relationship-item
-        v-bind:item="item"
-        v-bind:listType="listType"
-        v-bind:isCurrentUser="isCurrentUser"
+        :item="item"
+        :listType="listType"
+        :isCurrentUser="isCurrentUser"
       ></relationship-item>
     </li>
   </ul>
@@ -17,14 +17,17 @@
   export default {
     name: 'RelationshipList',
     props: ['userId', 'listType', 'isCurrentUser'],
+    
     components: {
       RelationshipItem
     },
+
     data: function () {
       return {
         relationships: []
       }
     },
+
     mounted() {
       axios
         .get(`/users/${this.userId}/${this.listType}`)

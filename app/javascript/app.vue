@@ -6,10 +6,9 @@
 
     <modal 
       v-show="isModalVisible"
-      v-bind:title="btnText"
-      v-bind:userId="userId"
-      v-bind:listType="listType"
-      v-bind:isCurrentUser="isCurrentUser"
+      :userId="userId"
+      :listType="listType"
+      :isCurrentUser="isCurrentUser"
       @close="closeModal"
     ></modal>
   </div>
@@ -17,17 +16,28 @@
 
 <script>
   import Modal from './packs/components/modal.vue';
+  import i18n from "./packs/components/mixins/i18n";
   
   export default {
+    props: ['btnCount', 'userId', 'listType', 'isCurrentUser'],
+    mixins: [i18n],
+
     components: {
       Modal
     },
-    props: ['btnCount', 'btnText', 'userId', 'listType', 'isCurrentUser'],
+
     data: function () {
       return {
         isModalVisible: false
       }
     },
+
+    computed: {
+      btnText: function () {
+        return this.listType === 'followers' ? this.t("js.followers", { count: this.btnCount }) : this.t("js.following")
+      },
+    },
+
     methods: {
       showModal() {
         this.isModalVisible = true;

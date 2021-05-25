@@ -8,8 +8,8 @@
     </span>
     <span v-if="isCurrentUser" class="relation">
       <relationship-button
-        v-bind:listType="listType"
-        v-bind:itemId="item.id"
+        :listType="listType"
+        :itemId="item.id"
       ></relationship-button>
     </span>
   </div>
@@ -22,6 +22,7 @@
   export default {
     name: 'RelationshipItem',
     props: ['item', 'listType', 'isCurrentUser'],
+    
     components: {
       UserInfo,
       RelationshipButton
