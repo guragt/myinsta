@@ -167,11 +167,12 @@ en:
         comments_count: "Number of comments"
         likes_count: "Number of likes"
         title: "Registered users"
-        private: "Private"
-        public: "Public"
-        deleted: "Deleted"
-        active: "Active"
+        private: "private"
+        public: "public"
+        deleted: "deleted"
+        active: "active"
         provider: "Provider"
+        native: "native"
         not_authorized: "You are not authorized to perform this action"
   layouts:
     header:
