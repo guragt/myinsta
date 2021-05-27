@@ -8,7 +8,8 @@ module Api
       end
 
       def show
-        @user = User.find(params[:id])
+        @user = User.find_by(id: params[:id])
+        render json: 'Not Found', status: :not_found unless @user
       end
 
       private
@@ -16,7 +17,7 @@ module Api
       def check_provider
         return if params[:provider] == 'native' || params[:provider] == 'oktaoauth'
 
-        render json: t('.bad_request'), status: :bad_request
+        render json: 'Bad request', status: :bad_request
       end
 
       def filtered_users
