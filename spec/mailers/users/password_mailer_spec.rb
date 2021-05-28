@@ -5,6 +5,10 @@ RSpec.describe Users::PasswordMailer, type: :mailer do
     let!(:user) { create(:user) }
     let!(:mail) { Users::PasswordMailer.reset_okta_password_instructions(user.email) }
 
+    before do
+      allow(Rails.configuration).to receive(:okta_url).and_return('http://dev-90106890.okta.com')
+    end
+
     it 'renders the headers' do
       expect(mail.subject).to eq('Reset password instructions')
       expect(mail.to).to eq([user.email])
