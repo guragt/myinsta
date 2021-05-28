@@ -88,4 +88,8 @@ class User < ApplicationRecord
   def send_devise_notification(notification, *args)
     devise_mailer.send(notification, self, *args).deliver_later
   end
+
+  def auth_provider
+    provider || I18n.t('.native')
+  end
 end
