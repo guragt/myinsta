@@ -16,15 +16,10 @@ RSpec.describe Users::PasswordsController, type: :controller do
     end
 
     context 'okta user' do
-      before do
-        allow(Rails.configuration).to receive(:okta_url).and_return('http://dev-90106890.okta.com')
-      end
-
       it 'redirects to log in path' do
         post :create, params: { user: { email: okta_user.email } }
 
-        expect(response).to redirect_to(URI.join(Rails.configuration.okta_url,
-                                                 '/enduser/settings').to_s)
+        expect(response).to redirect_to(new_user_session_path)
       end
     end
   end

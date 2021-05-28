@@ -44,6 +44,15 @@ en:
       mini_magick_processing_error: "Failed to manipulate with MiniMagick, maybe it is not an image? Original Error: %{e}"
       min_size_error: "File size should be greater than %{min_size}"
       max_size_error: "File size should be less than %{max_size}"
+  api:
+    v1:
+      users:
+        index:
+          bad_request: "Bad request"
+        show:
+          not_found: "Not found"
+        user:
+          native: "native"
   devise:
     sessions:
       new:
@@ -111,6 +120,12 @@ en:
       unlocked: "Unlocked"
     gallery:
       no_posts: "No posts yet"
+    password_mailer:
+      reset_okta_password_instructions:
+        subject: "Reset password instructions"
+        greeting: "Hello %{email}!"
+        content: "Someone has requested changing your password. You can do this in your"
+        link: "okta account"
   posts:
     new_modal:
       title: "Create new post"
