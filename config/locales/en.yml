@@ -49,6 +49,8 @@ en:
       users:
         index:
           bad_request: "Bad request"
+        show:
+          not_found: "Not found"
   devise:
     sessions:
       new:
@@ -116,6 +118,13 @@ en:
       unlocked: "Unlocked"
     gallery:
       no_posts: "No posts yet"
+    password_mailer:
+      reset_okta_password_instructions:
+        subject: "Reset password instructions"
+        greeting: "Hello %{email}!"
+        content_text: "Someone has requested changing your password. You can do this in your okta account %{okta_url}."
+        content_html: "Someone has requested changing your password. You can do this in your %{href}."
+        link: "okta account"
   posts:
     new_modal:
       title: "Create new post"
@@ -167,10 +176,10 @@ en:
         comments_count: "Number of comments"
         likes_count: "Number of likes"
         title: "Registered users"
-        private: "Private"
-        public: "Public"
-        deleted: "Deleted"
-        active: "Active"
+        private: "private"
+        public: "public"
+        deleted: "deleted"
+        active: "active"
         provider: "Provider"
         not_authorized: "You are not authorized to perform this action"
   layouts:
@@ -207,6 +216,7 @@ en:
       deleted_users_count: "Deleted users count: %{count}"
       total_users_count: "Total users count: %{count}"
   need_sign_up: "You need to sign up before continuing."
+  native: "native"
   js:
     delete: "Delete"
     deleted: "Deleted"

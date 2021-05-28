@@ -8,7 +8,8 @@ module Api
       end
 
       def show
-        @user = User.find(params[:id])
+        @user = User.find_by(id: params[:id])
+        render json: t('.not_found'), status: :not_found unless @user
       end
 
       private
