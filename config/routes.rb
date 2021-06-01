@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get :current, :declined
       get :edit_profile, to: 'users#edit'
       patch :update_profile, to: 'users#update'
+      post :create_profile, to: 'users#create'
     end
 
     member do
