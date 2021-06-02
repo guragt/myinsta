@@ -6,6 +6,9 @@ RSpec.describe UsersController, type: :controller do
   let!(:third_user) { create(:user, name: 'Some Name', nickname: '<<jonathan>>') }
   let!(:fourth_user) { create(:user, name: 'Default Name', nickname: 'default_nick') }
   let!(:valid_params) { attributes_for(:user) }
+  let!(:valid_okta_params) do
+    attributes_for(:user).merge!(provider: 'oktaoauth', uid: '98765')
+  end
   let!(:active_relationship) do
     create(:relationship, follower: user, followed: second_user, status: 'active')
   end
@@ -49,6 +52,36 @@ RSpec.describe UsersController, type: :controller do
         get :current
         expect(response).to have_http_status(:success)
         expect(response).to render_template('current')
+      end
+    end
+
+    describe 'POST#create' do
+      context 'with valid params' do
+        it 'creates new user' do
+          expect do
+            post :create, params: { user: valid_okta_params }
+          end.to change(User, :count).by(1)
+        end
+
+        it 'redirects to root_path' do
+          post :create, params: { user: valid_okta_params }
+
+          expect(response).to redirect_to(root_path)
+        end
+      end
+
+      context 'with invalid params' do
+        it 'does not create new user' do
+          expect do
+            post :create, params: { user: valid_okta_params.merge!(nickname: '') }
+          end.not_to change(User, :count)
+        end
+
+        it 'renders new template' do
+          post :create, params: { user: valid_okta_params.merge!(nickname: '') }
+
+          expect(response).to render_template('new')
+        end
       end
     end
 

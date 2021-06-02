@@ -5,9 +5,8 @@ module Users
       if @user.persisted?
         sign_in_and_redirect @user
       else
-        @user.save(validate: false)
-        sign_in @user
-        redirect_to edit_profile_users_path
+        @user.errors.clear
+        render 'users/new'
       end
     end
   end

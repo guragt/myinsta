@@ -113,7 +113,15 @@ RSpec.describe User, type: :model do
       OmniAuth::AuthHash.new({
                                provider: 'oktaoauth',
                                ui: '67890',
-                               info: { email: 'okta_email@test.net' }
+                               info: {
+                                 email: 'okta_email@test.net',
+                                 name: 'New User'
+                               },
+                               extra: {
+                                 raw_info: {
+                                   nickname: 'new_user'
+                                 }
+                               }
                              })
     end
 
@@ -129,6 +137,8 @@ RSpec.describe User, type: :model do
       expect(new_user.uid).to eq(new_user_okta_hash['uid'])
       expect(new_user.provider).to eq(new_user_okta_hash['provider'])
       expect(new_user.email).to eq(new_user_okta_hash['info']['email'])
+      expect(new_user.name).to eq(new_user_okta_hash['info']['name'])
+      expect(new_user.nickname).to eq(new_user_okta_hash['extra']['raw_info']['nickname'])
     end
   end
 end

@@ -79,8 +79,12 @@ en:
   users:
     index:
       title: "Search results for \"%{search}\""
+    new:
+      title: "Create profile"
+      submit: "Save"
+      cancel: "Cancel"
     edit:
-      title: "User profile"
+      title: "Edit profile"
       submit: "Save"
       cancel: "Cancel"
       remove: "Remove my account"

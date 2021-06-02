@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :create
   before_action :obtain_user, only: %i[show following followers]
   before_action :obtain_current_user, only: %i[edit update]
   before_action :obtain_active_relationships, only: %i[index show]
@@ -11,6 +11,15 @@ class UsersController < ApplicationController
   def show
     redirect_to current_users_path if @user == current_user
     @posts = @user.posts.order(created_at: :desc)
+  end
+
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      sign_in_and_redirect @user
+    else
+      render 'new'
+    end
   end
 
   def edit; end
@@ -45,8 +54,8 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :nickname, :email, :private, :avatar,
-                                 :avatar_cache, :remove_avatar)
+    params.require(:user).permit(:name, :nickname, :email, :password, :provider, :uid,
+                                 :private, :avatar, :avatar_cache, :remove_avatar)
   end
 
   def obtain_user

@@ -39,19 +39,29 @@ class User < ApplicationRecord
 
   def self.from_omniauth(auth)
     if (user = find_by(email: auth['info']['email']))
-      user.update(okta_params(auth))
+      user.update(edit_okta_params(auth))
     else
-      user = create(okta_params(auth))
+      user = create(new_okta_params(auth))
     end
 
     user
   end
 
-  def self.okta_params(auth)
+  def self.new_okta_params(auth)
+    {
+      name: auth['info']['name'],
+      nickname: auth['extra']['raw_info']['nickname'],
+      email: auth['info']['email'],
+      provider: auth['provider'],
+      uid: auth['uid'],
+      password: Devise.friendly_token[0, 20]
+    }
+  end
+
+  def self.edit_okta_params(auth)
     {
       provider: auth['provider'],
       uid: auth['uid'],
-      email: auth['info']['email'],
       password: Devise.friendly_token[0, 20]
     }
   end
