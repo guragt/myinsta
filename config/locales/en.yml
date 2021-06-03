@@ -90,7 +90,9 @@ en:
       remove: "Remove my account"
       sure: "Are you sure?"
     update:
-      updated: "Your account has been updated successfully."      
+      updated: "Your account has been updated successfully."
+      private: "It is private now."
+      public: "It is public now."     
     followers:
       title: "Followers"
       delete: "Delete"
