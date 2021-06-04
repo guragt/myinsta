@@ -91,8 +91,8 @@ en:
       sure: "Are you sure?"
     update:
       updated: "Your account has been updated successfully."
-      private: "It is private now."
-      public: "It is public now."     
+      updated_public: "Your account has been updated successfully. It is public now."
+      updated_private: "Your account has been updated successfully. It is private now."     
     followers:
       title: "Followers"
       delete: "Delete"

@@ -83,6 +83,10 @@ class User < ApplicationRecord
     !private?
   end
 
+  def account_type
+    public? ? 'public' : 'private'
+  end
+
   def admin?
     false
   end

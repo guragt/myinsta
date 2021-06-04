@@ -71,14 +71,10 @@ class UsersController < ApplicationController
   end
 
   def success_update_message
-    message = t('.updated')
     if @user.private_previously_changed?
-      message << ' ' << if @user.private_previous_change[1]
-                          t('.private')
-                        else
-                          t('.public')
-                        end
+      t(".updated_#{@user.account_type}")
+    else
+      t('.updated')
     end
-    message
   end
 end
