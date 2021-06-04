@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:success] = t('.updated')
+      flash[:success] = success_update_message
       redirect_to root_path
     else
       render 'edit'
@@ -68,5 +68,13 @@ class UsersController < ApplicationController
 
   def obtain_active_relationships
     @active_relationships = current_user.active_relationships
+  end
+
+  def success_update_message
+    if @user.private_previously_changed?
+      t(".updated_#{@user.account_type}")
+    else
+      t('.updated')
+    end
   end
 end

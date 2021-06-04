@@ -136,6 +136,40 @@ RSpec.describe UsersController, type: :controller do
           expect(user.email).to_not eq(valid_params[:email])
         end
       end
+
+      context 'make account private' do
+        before do
+          patch :update, params: { user: { private: true } }
+        end
+
+        it 'redirects to root_path' do
+          expect(response).to redirect_to(root_path)
+          expect(flash[:success]).to match(/It is private now/)
+        end
+
+        it 'updates private' do
+          user.reload
+          expect(user.private).to be true
+        end
+      end
+
+      context 'make account public' do
+        before do
+          user.private = true
+          user.save
+          patch :update, params: { user: { private: false } }
+        end
+
+        it 'redirects to root_path' do
+          expect(response).to redirect_to(root_path)
+          expect(flash[:success]).to match(/It is public now/)
+        end
+
+        it 'updates private' do
+          user.reload
+          expect(user.private).to be false
+        end
+      end
     end
 
     describe 'GET#declined' do
