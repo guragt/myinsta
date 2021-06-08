@@ -66,11 +66,6 @@ class User < ApplicationRecord
     }
   end
 
-  def self.authenticate(email, password)
-    user = User.find_for_authentication(email: email)
-    user&.valid_password?(password) ? user : nil
-  end
-
   def following_status_for(other_user)
     return 'not_following' unless following.include?(other_user)
 

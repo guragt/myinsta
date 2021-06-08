@@ -5,17 +5,9 @@ Doorkeeper.configure do
   # Check the list of supported ORMs here: https://github.com/doorkeeper-gem/doorkeeper#orms
   orm :active_record
 
-  resource_owner_from_credentials do |_routes|
-    User.authenticate(params[:username], params[:password])
-  end
-
-  grant_flows %w[password]
+  grant_flows ['client_credentials']
 
   allow_blank_redirect_uri true
-
-  skip_authorization do
-    true
-  end
 
   use_refresh_token
   # This block will be called to check whether the resource owner is authenticated or not.
