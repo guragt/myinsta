@@ -5,11 +5,11 @@ RSpec.describe Api::V1::UsersController, type: :controller do
   let!(:octa_user) { create(:user, provider: 'oktaoauth') }
   let!(:username) { Rails.configuration.username }
   let!(:password) { Rails.configuration.password }
+  let!(:token) { instance_double('Doorkeeper::AccessToken', acceptable?: true) }
 
-  context 'authenticated user' do
+  context 'authenticated' do
     before do
-      request.env['HTTP_AUTHORIZATION'] =
-        ActionController::HttpAuthentication::Basic.encode_credentials(username, password)
+      allow(controller).to receive(:doorkeeper_token) { token }
     end
 
     describe 'GET#index' do
@@ -55,7 +55,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
     end
   end
 
-  context 'unauthenticated user' do
+  context 'unauthenticated' do
     describe 'GET#index' do
       it 'does not render index template' do
         get :index, format: :json

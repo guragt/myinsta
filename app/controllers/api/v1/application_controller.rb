@@ -6,7 +6,7 @@ module Api
 
       private
 
-      def doorkeeper_unauthorized_render_options(error: nil)
+      def doorkeeper_unauthorized_render_options(*)
         { json: t('.not_authorized') }
       end
     end
