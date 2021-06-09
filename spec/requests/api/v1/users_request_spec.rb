@@ -6,18 +6,15 @@ RSpec.describe 'Api::V1::Users', type: :request do
   let!(:username) { Rails.configuration.username }
   let!(:password) { Rails.configuration.password }
   let(:json) { JSON.parse(response.body) }
-  let!(:headers) do
-    { HTTP_AUTHORIZATION: ActionController::HttpAuthentication::Basic.encode_credentials(
-      username, password
-    ) }
-  end
+  let!(:application) { Doorkeeper::Application.create(name: 'Test app') }
+  let!(:token) { Doorkeeper::AccessToken.create(application: application) }
+  let!(:headers) { { Authorization: "Bearer #{token.token}" } }
 
   context 'authenticated user' do
     describe 'GET /api/v1/users' do
       context 'without params' do
         it 'renders index template' do
           get api_v1_users_path(format: :json), headers: headers
-
           expect(response).to have_http_status(:success)
           expect(response).to render_template('index')
           expect(json.size).to eq(2)

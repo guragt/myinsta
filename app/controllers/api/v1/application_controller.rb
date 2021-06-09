@@ -2,14 +2,12 @@ module Api
   module V1
     class ApplicationController < ::ApplicationController
       skip_before_action :set_q
-      before_action :authentication_check
+      before_action :doorkeeper_authorize!
 
       private
 
-      def authentication_check
-        authenticate_or_request_with_http_basic do |user, password|
-          user == Rails.configuration.username && password == Rails.configuration.password
-        end
+      def doorkeeper_unauthorized_render_options(*)
+        { json: t('.not_authorized') }
       end
     end
   end
